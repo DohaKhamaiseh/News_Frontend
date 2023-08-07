@@ -9,7 +9,7 @@ export default function useReadingList(){
     const URL = process.env.NEXT_PUBLIC_BACKEND_URL;
     const apiUrl = URL+"api/v1/dailypulse/";
     // console.log(apiUrl)
-    const {data, error , mutate} = useSWR([apiUrl,tokens], getReadingList)
+    const {data, error,isLoading , mutate} = useSWR([apiUrl,tokens], getReadingList)
 
     
     // func -1- get reading list from the readinglist route argument user id that comes from useAuth 
@@ -79,6 +79,7 @@ export default function useReadingList(){
         GetList : data,
         createReadingLater,
         deleteReadingLater,
+        isLoading:isLoading
     }
 
 }
