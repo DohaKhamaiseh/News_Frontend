@@ -5,13 +5,13 @@
 
 import useSWR from 'swr';
 
-const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL + '/api/v1/dailypulse/';
-import { useAuth } from '../contexts/auth';
+const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL + 'api/v1/dailypulse/';
+import { useAuth } from '../context/auth';
 
 export default function useNews(){
 
     const { tokens, logout,user } = useAuth();
-    const { data,isLoading, error, mutate } = useSWR([apiUrl, tokens], fetchNews);
+    const { data,isLoading, error, mutate } = useSWR([`${apiUrl}Get_News/${user.id}`, tokens], fetchNews);
 
     async function fetchNews(){
         if (!tokens) {
