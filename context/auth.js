@@ -1,67 +1,80 @@
-import { createContext, useContext, useState } from 'react';
-import jwt from 'jsonwebtoken';
+import { createContext, useContext, useState } from "react";
+import jwt from "jsonwebtoken";
 const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-const tokenUrl = baseUrl + 'api/token/';
+const tokenUrl = baseUrl + "api/token/";
 
 const AuthContext = createContext();
 
 export function useAuth() {
-    const auth = useContext(AuthContext);
-    if (!auth) {
-        throw new Error('You forgot AuthProvider!');
-    }
-    return auth;
+  const auth = useContext(AuthContext);
+  if (!auth) {
+    throw new Error("You forgot AuthProvider!");
+  }
+  return auth;
 }
 
 export function AuthProvider(props) {
+  const [state, setState] = useState({
+    tokens: null,
+    user: null,
+    login,
+    logout,
+    // lang: "eng",
+    // langSetter,
+  });
+  //   function langSetter() {
+  //     setState((prevState) => {
+  //       let newState;
+  //       if (prevState.lang === "arb") {
+  //         newState = {
+  //           lang: "eng",
+  //         };
+  //       } else if (prevState.lang === "eng") {
+  //         newState = {
+  //           lang: "arb",
+  //         };
+  //       }
+  //       return { ...prevState, ...newState };
+  //     });
+  //   }
 
-    const [state, setState] = useState({
-        tokens: null,
-        user: null,
-        login,
-        logout,
-    });
+  async function login(username, password) {
+    // const response = await axios.post(tokenUrl, { username, password });
 
-    async function login(username, password) {
+    const options = {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+      headers: { "Content-Type": "application/json" },
+    };
 
-        // const response = await axios.post(tokenUrl, { username, password });
+    const response = await fetch(tokenUrl, options);
 
-        const options = {
-            method: "POST",
-            body: JSON.stringify({username, password}),
-            headers: {'Content-Type': 'application/json'},
-        };
+    const data = await response.json();
 
-        const response = await fetch(tokenUrl, options);
+    const decodedAccess = jwt.decode(data.access);
 
-        const data = await response.json();
+    const newState = {
+      tokens: data,
+      user: {
+        username: decodedAccess.username,
+        email: decodedAccess.email,
+        id: decodedAccess.user_id,
+        location: decodedAccess.location,
+      },
+    };
 
-        const decodedAccess = jwt.decode(data.access);
+    setState((prevState) => ({ ...prevState, ...newState }));
+  }
 
-        const newState = {
-            tokens: data,
-            user: {
-                username: decodedAccess.username,
-                email: decodedAccess.email,
-                id: decodedAccess.user_id,
-                location: decodedAccess.location
-            },
-        };
+  function logout() {
+    const newState = {
+      tokens: null,
+      user: null,
+    };
+    setState((prevState) => ({ ...prevState, ...newState }));
+  }
 
-        setState(prevState => ({ ...prevState, ...newState }));
-    }
-
-    function logout() {
-        const newState = {
-            tokens: null,
-            user: null,
-        };
-        setState(prevState => ({ ...prevState, ...newState }));
-    }
-
-    return (
-        <AuthContext.Provider value={state}>
-            {props.children}
-        </AuthContext.Provider>
-    );
+  return (
+    <AuthContext.Provider value={state}>{props.children}</AuthContext.Provider>
+  );
 }
