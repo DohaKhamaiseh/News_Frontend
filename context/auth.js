@@ -61,7 +61,9 @@ export function AuthProvider(props) {
         id: decodedAccess.user_id,
         location: decodedAccess.location,
       },
+      
     };
+    console.log(decodedAccess)
 
     setState((prevState) => ({ ...prevState, ...newState }));
   }
