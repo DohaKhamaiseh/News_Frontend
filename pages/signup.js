@@ -1,8 +1,12 @@
+
 import { useAuth } from "@/context/auth";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import SmallHeader from "@/components/SmallHeader";
+
+
+import Link from 'next/link'
 
 export default function signUp() {
   const [alert, setAlert] = useState(false);
