@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -15,13 +16,13 @@ export default function Footer() {
         
         {/* Middle Section */}
         <div className="text-white text-center">
-          <p className="mb-2">About Us</p>
-          <p className="mb-2">Contact Us</p>
-          <p>Our Team</p>
+          <Link href="./aboutus"><p className="mb-2">About Us</p></Link>
+          <Link href="./ourteam"><p>Our Team</p></Link>
         </div>
         
         {/* Right Section */}
         <div className="flex items-center space-x-4">
+        <p className="mb-2">Contact Us</p>
           <div className="flex items-center space-x-2">
             <a href="#">
               <FontAwesomeIcon icon={faTwitter} className="w-6 h-6 text-white" />
