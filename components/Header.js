@@ -94,7 +94,7 @@ export default function Header() {
           <div className="items-center h-full">
             {user ? (
               <>
-                <span className=" font-bold ml-2 font-medium px-4 py-2 text-xs font-bold  active:bg-teal-600">
+                <span className=" font-bold ml-2 px-4 py-2 text-xs   active:bg-teal-600">
                   {Math.round(data)}°C
                 </span>
                 <text className=" font-bold ml-2 font-larg px-6 py-4 text-xs active:bg-teal-600">
