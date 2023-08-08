@@ -38,7 +38,7 @@ export default function signUp() {
     <>
       <SmallHeader />
 
-      <div className="bg-gray-200 min-h-screen flex-1 pt-10">
+      <div className="bg-gray-200 min-h-screen flex-1 pt-10 dark:bg-black">
         <div className="container mx-auto">
           <div className="flex justify-center px-6 my-12">
             {/* <!-- Row --> */}

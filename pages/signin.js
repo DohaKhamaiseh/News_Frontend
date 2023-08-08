@@ -44,11 +44,10 @@ export default function signIn() {
     }
   }
   return (
-
-
-
-<div className="bg-gray-200 min-h-screen flex-1 pt-10">
-        <div className="container mx-auto">
+    <>
+      <SmallHeader />
+      <div className="bg-gray-200 min-h-screen flex-1 pt-10 ">
+        <div className="container mx-auto pt-20">
           <div className="flex justify-center px-6 my-12">
             {/* <!-- Row --> */}
             <div className="w-full xl:w-3/4 lg:w-11/12 flex">
@@ -57,9 +56,11 @@ export default function signIn() {
                 className="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
                 style={{
                   backgroundImage: `url(
-                    "https://img.freepik.com/free-photo/man-with-tablet_1112-648.jpg?w=1380&t=st=1691495687~exp=1691496287~hmac=502d84b9091a2d6fe8c9ee8d7c1920bd0eb1ed9d6be15de3c295222d984aca8a"
+                  "https://img.freepik.com/free-photo/man-with-tablet_1112-648.jpg?w=1380&t=st=1691495687~exp=1691496287~hmac=502d84b9091a2d6fe8c9ee8d7c1920bd0eb1ed9d6be15de3c295222d984aca8a"
                   )`,
                   backgroundPosition: "center",
+                  backgroundSize: "170%",
+                  backgroundRepeat: "no-repeat",
                 }}
               >
                 {/* <img src="https://img.freepik.com/free-psd/newspaper-cover-concept-mock-up_23-2148384363.jpg?w=826&t=st=1691495160~exp=1691495760~hmac=0111bb20b93a1588a5c1c27312eaf41d8f86d22a86e3e286be8fea750599891d" /> */}
@@ -67,13 +68,12 @@ export default function signIn() {
               {/* Col  */}
               <div className="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
                 <h3 className="pt-4 text-2xl text-center">
-                 Signin to your account!
+                  Signin to your account!
                 </h3>
                 <form
                   className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
                   onSubmit={userHandler}
                 >
-               
                   <div className="mb-4">
                     <label className="block mb-2 text-sm font-bold text-gray-700">
                       Username
@@ -86,25 +86,28 @@ export default function signIn() {
                       name="Name"
                       required
                     />
-                    {errors.user_name && <p>{errors.user_name}</p>}
+                    {errors.user_name && (
+                      <p className="text-red-500">{errors.user_name}</p>
+                    )}
                   </div>
-               
-                  <div className="mb-4 md:flex md:justify-between">
+
+                  <div className="mb-4">
                     <div className="mb-4 md:mr-2 md:mb-0">
                       <label className="block mb-2 text-sm font-bold text-gray-700">
                         Password
                       </label>
                       <input
-                        className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 borderrounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                        className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                         id="password"
                         type="password"
                         placeholder="******************"
                         name="Pass"
                         required
                       />
-                      {errors.password && <p>{errors.password}</p>}
+                      {errors.password && (
+                        <p className="text-red-500">{errors.password}</p>
+                      )}
                     </div>
-                 
                   </div>
                   <div className="mb-6 text-center">
                     <button
@@ -113,7 +116,6 @@ export default function signIn() {
                     >
                       Register Account
                     </button>
-              
                   </div>
                   <hr className="mb-6 border-t" />
                   <div className="text-center">
@@ -130,8 +132,6 @@ export default function signIn() {
           </div>
         </div>
       </div>
- 
-  )
-
-    
+    </>
+  );
 }
