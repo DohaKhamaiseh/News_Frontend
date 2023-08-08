@@ -11,7 +11,7 @@
   justify-content: center; 
   padding: var(--spacing-xxl) var(--spacing-l);
   margin-top: 0; /* No need for a top margin when we're using full height */
-
+}
 
 .custom-teal-bg {
   background-color: #02a8ae;
@@ -124,24 +124,6 @@
 .input:checked + .slider:before {
   transform: translateX(30px);
 }
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-}
-
-.card-grid{
-  display: flex;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: var(--spacing-l);
-  max-width: var(--width-container);
-  width: 100%;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-basis: calc(70.33% - 10px);
-  /* margin: 7px; */
-}
 
 
 @media(min-width: 540px){
@@ -180,7 +162,7 @@
   right: 0;
   top: 0;
   transform-origin: center;
-  trsnsform: scale(1) translateZ(0);
+  transform: scale(1) translateZ(0);
   transition: 
     filter 200ms linear,
     transform 200ms linear;
@@ -251,7 +233,7 @@
   margin: 0 5px; 
 
 
-
+}
 
 .lang-dropdown {
   position: absolute;
