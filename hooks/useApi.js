@@ -55,7 +55,7 @@ export function useApi3(location) {
         const response = await axios.get(
           `${backendURL}api/v1/dailypulse/${location}`
         );
-        setData(response.data);
+        setData(response.data.main.temp);
         setLoading(false);
       } catch (e) {
         setError(true);
