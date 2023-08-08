@@ -26,7 +26,7 @@ export default function signUp() {
         password1: e.target.password.value,
         password2: e.target.c_password.value,
       };
-      // signup(obj);
+      signup(obj);
       setAlert(false);
       router.push("/signin");
     } else {
@@ -145,9 +145,6 @@ export default function signUp() {
                         name="password"
                         required
                       />
-                      {/* <p className="text-xs italic text-red-500">
-                    Please choose a password.
-                  </p> */}
                     </div>
                     <div className="md:ml-2">
                       <label className="block mb-2 text-sm font-bold text-gray-700">
@@ -184,14 +181,6 @@ export default function signUp() {
                     </div>
                   </div>
                   <hr className="mb-6 border-t" />
-                  {/* <div className="text-center">
-                <a
-                className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                  href="#"
-                >
-                Forgot Password?
-                </a>
-              </div> */}
                   <div className="text-center">
                     <Link
                       className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
