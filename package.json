@@ -16,9 +16,13 @@
     "axios": "^1.4.0",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
+
+    "flag-icons": "^6.9.3",
+
     "i18next": "^23.4.2",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.2.1",
+
     "jsonwebtoken": "^9.0.1",
 
     "next": "13.4.12",
@@ -26,6 +30,9 @@
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+
+    "react-icons": "^4.10.1",
+
     "react-i18next": "^13.0.3",
 
     "swr": "^2.2.0",
