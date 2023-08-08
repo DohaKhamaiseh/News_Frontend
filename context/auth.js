@@ -19,6 +19,7 @@ export function AuthProvider(props) {
     user: null,
     login,
     logout,
+    signup,
     // lang: "eng",
     // langSetter,
   });
@@ -61,7 +62,9 @@ export function AuthProvider(props) {
         id: decodedAccess.user_id,
         location: decodedAccess.location,
       },
+      
     };
+    console.log(decodedAccess)
 
     setState((prevState) => ({ ...prevState, ...newState }));
   }
@@ -72,6 +75,15 @@ export function AuthProvider(props) {
       user: null,
     };
     setState((prevState) => ({ ...prevState, ...newState }));
+  }
+
+  async function signup(info) {
+    const options = {
+      method: "POST",
+      body: JSON.stringify(info),
+      headers: { "Content-Type": "application/json" },
+    };
+    await fetch(`${baseUrl}accounts/signup/`, options);
   }
 
   return (

@@ -1,8 +1,9 @@
-import React from 'react'
-import { useAuth } from "../context/auth"
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import React from "react";
+import { useAuth } from "../context/auth";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import SmallHeader from "@/components/SmallHeader";
 
 export default function signIn() {
   const { login, user } = useAuth();
@@ -10,41 +11,40 @@ export default function signIn() {
 
   const [userInfo, setUserInfo] = useState({
     user_name: "",
-    password: ""
+    password: "",
   });
 
-  const [errors,setError]= useState({
+  const [errors, setError] = useState({
     user_name: "",
-    password: ""
+    password: "",
   });
 
   useEffect(() => {
     if (user) {
-      router.push('/');
+      router.push("/");
     }
   }, [user, router]);
-
- 
 
   async function userHandler(event) {
     event.preventDefault();
     const userObj = {
       user_name: event.target.Name.value,
-      password: event.target.Pass.value
-    }
+      password: event.target.Pass.value,
+    };
 
     setUserInfo(userObj);
     console.log(userObj);
     try {
       await login(userObj.user_name, userObj.password);
-    } catch(err) {
+    } catch (err) {
       setError({
         user_name: "Invalid username",
-        password:  "Invalid password" 
+        password: "Invalid password",
       });
     }
   }
   return (
+
 
 
 <div className="bg-gray-200 min-h-screen flex-1 pt-10">
@@ -132,6 +132,6 @@ export default function signIn() {
       </div>
  
   )
+
+    
 }
-
-
