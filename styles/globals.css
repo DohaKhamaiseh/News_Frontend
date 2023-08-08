@@ -137,3 +137,10 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+.lang-dropdown {
+  position: absolute;
+  left: 100px;
+  top: 50px;
+  background-color: gainsboro;
+}
