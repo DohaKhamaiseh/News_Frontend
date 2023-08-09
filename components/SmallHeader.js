@@ -56,7 +56,7 @@ export default function SmallHeader() {
   const m = date.datetime.slice(0, 10).split("-")[1];
   const d = date.datetime.slice(0, 10).split("-")[2];
   return (
-    <header className="p-2 flex justify-between bg-gray-600 ">
+    <header className="p-2 flex justify-between bg-minHeaderLight dark:bg-minHeaderDark">
       <div>
         <button
           className="mx-20 flex justify-between"

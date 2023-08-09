@@ -1,15 +1,13 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 
-
-export const Parent = () => {
+export const Parent = ({ children }) => {
   return (
     <>
-    <Header/>
-     {/* {children} */}
-    <Footer/>
+      <Header />
+      {children}
+      <Footer />
     </>
-  )
-}
-
+  );
+};
