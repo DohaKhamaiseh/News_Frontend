@@ -14,7 +14,21 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        transparent: "transparent",
+        current: "currentColor",
+        bgLight: "#EAF4F4",
+        bgDark: "#14242B",
+
+        minHeaderLight: "#CCE3DE",
+        minHeaderDark: "#2F4550",
+        buttonbg: "#6B9080",
+
+        fontDark: "#F6FFF8",
+      },
     },
   },
   plugins: [],
 };
+
+// font - serif;

@@ -11,7 +11,7 @@ export default function Header() {
   const username = user?.username;
   // console.log(user)
   // console.log(location)
-  const { data = { data } - 273, loading, error } = useApi3(location);
+  const { data, loading, error } = useApi3(location);
   const [Mode, setMode] = useState("light");
   const handleMode = () => {
     let htmlClasses = document.documentElement.classList;
@@ -24,10 +24,10 @@ export default function Header() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 min-w-screen dark:bg-black">
+    <>
       <SmallHeader />
-      <header className="w-full  text-gray-700 bg-white border-t border-gray-100 shadow-sm body-font dark:bg-black">
-        <div className=" dark:bg-black container flex flex-col items-start justify-between p-8 mx-auto md:flex-row">
+      <header className="w-full  text-gray-700 bg-bgLight border-t border-b border-gray-300 dark:border-gray-600 shadow-sm body-font dark:bg-bgDark">
+        <div className="container flex flex-col items-start justify-between p-8 mx-auto md:flex-row">
           <a className="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,10 +94,10 @@ export default function Header() {
           <div className="items-center h-full">
             {user ? (
               <>
-                <span className=" font-bold ml-2 px-4 py-2 text-xs   active:bg-teal-600">
-                  {Math.round(data)}°C
+                <span className="  ml-2 px-4 py-2 text-xs   dark:text-teal-600  text-gray-900 font-bold">
+                  {Math.round(data) - 273}°C
                 </span>
-                <text className=" font-bold ml-2 font-larg px-6 py-4 text-xs active:bg-teal-600">
+                <text className="  ml-2 font-larg px-6 py-4 text-xs dark:text-teal-600  text-gray-900 font-bold">
                   {username}
                 </text>
 
@@ -114,7 +114,7 @@ export default function Header() {
                 {/* onClick={() => login("amjad", "1234")} */}
                 <Link
                   href="/signin"
-                  className="mr-5 font-medium hover:text-gray-900"
+                  className="mr-5  dark:text-teal-600  text-gray-900 font-bold"
                 >
                   Login
                 </Link>
@@ -130,6 +130,6 @@ export default function Header() {
           </div>
         </div>
       </header>
-    </div>
+    </>
   );
 }
