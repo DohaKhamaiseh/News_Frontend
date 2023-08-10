@@ -7,6 +7,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Newsection from "@/components/Newsection";
 import Trendingsection from "@/components/Trendingsection";
 import TechSection from "@/components/TechSection";
+import MostComments from "@/components/MostComments";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -39,6 +40,7 @@ export default function Home() {
         <Newsection/>
        <Trendingsection/>
        <TechSection/>
+       <MostComments />
       </Parent>
     </>
   );

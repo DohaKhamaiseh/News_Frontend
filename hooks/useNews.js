@@ -5,13 +5,14 @@
 
 import useSWR from 'swr';
 
-const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL + 'api/v1/dailypulse/';
+const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL + 'api/v1/dailypulse/';
 import { useAuth } from '../context/auth';
 
 export default function useNews(){
 
     const { tokens, logout,user } = useAuth();
-    const { data,isLoading, error, mutate } = useSWR([`${apiUrl}Get_News/${user.id}`, tokens], fetchNews);
+    const user_id = user?.id
+    const { data,isLoading, error, mutate } = useSWR([`${apiUrl}Get_News/${user_id}`, tokens], fetchNews);
 
     async function fetchNews(){
         if (!tokens) {
@@ -30,10 +31,12 @@ export default function useNews(){
             handleError(err);
         }
     }
-    async function fetchAllNews(info) {
+
+    async function fetchAllNews() {
         try {
-            const url = `${apiUrl}Get_News/`
-            const response = await fetch(url, config());
+             console.log(apiUrl)
+            const url = `${apiUrl}Get_all_News/`
+            const response = await fetch(url);
 
             const responseJSON = await response.json();
 
@@ -42,6 +45,7 @@ export default function useNews(){
             handleError(err);
         }
     }
+    
     async function createNews(info) {
         try {
             const url = `${apiUrl}Create_News/`
@@ -85,12 +89,16 @@ export default function useNews(){
         
     return {
         news: data,
+
         error,
         isLoading: isLoading,
         fetchNews,
         createNews,
         deleteNews,
         fetchAllNews,
+        
+
+      
     };    
 }
 

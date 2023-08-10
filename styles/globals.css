@@ -331,13 +331,3 @@
  
   background: linear-gradient(0deg, #007bff, #00cc99);
 }
-
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px;
-  width: 100%;
-  margin: 0 auto; 
-}
