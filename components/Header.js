@@ -6,8 +6,12 @@ import Link from "next/link";
 import SmallHeader from "./SmallHeader";
 import Cookies from "js-cookie";
 import { FaTemperatureHalf } from "react-icons/fa6";
+import { useTranslation } from "next-i18next";
+
+
 
 export default function Header() {
+  const { t } = useTranslation();
   const { user, logout } = useAuth();
   const location = user?.location;
   const username = user?.username;
@@ -117,7 +121,7 @@ export default function Header() {
                   onClick={() => logout()}
                 >
                   {" "}
-                  Logout{" "}
+                  {t("common:Logout")}{" "}
                 </a>
               </>
             ) : (
@@ -127,14 +131,14 @@ export default function Header() {
                   href="/signin"
                   className="mr-5  dark:text-teal-600  text-gray-900 font-bold"
                 >
-                  Login
+                   {t("common:Login")}
                 </Link>
 
                 <Link
                   href="/signup"
                   className="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 custom-teal-bg rounded shadow outline-none active:bg-teal-600 hover:shadow-md focus:outline-none ease"
                 >
-                  Sign Up
+                 {t("common:signup")}
                 </Link>
               </>
             )}
