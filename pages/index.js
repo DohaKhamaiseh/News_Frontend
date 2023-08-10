@@ -8,6 +8,8 @@ import Newsection from "@/components/Newsection";
 import Trendingsection from "@/components/Trendingsection";
 import TechSection from "@/components/TechSection";
 import MostComments from "@/components/MostComments";
+import NavBar from "@/components/NavBar";
+import CatgoryBase from "@/components/CatgoryBase";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -18,9 +20,9 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function Home() {
-  // const { lang, langSetter } = useAuth();
-  // const [lang, setLang] = useState("eng")
   const { t } = useTranslation();
+  const [category, setCategory] = useState("all");
+  useEffect(() => {}, [category]);
 
   return (
     <>
@@ -28,19 +30,18 @@ export default function Home() {
         <title>Home</title>
       </Head>
       <Parent>
-        <h1>{t("home:welcome_msg")}</h1>
-        <h1>{t("home:Monday")}</h1>
-        {/* <div>
-          {lang === "eng" ? <h1>hello</h1> : <h1>arabic</h1>}
+        <NavBar setCategory={setCategory} />
 
-          <button onClick={() => langSetter()}>
-            {lang === "eng" ? "click" : "كبسة"}
-          </button>
-        </div> */}
-        <Newsection/>
-       <Trendingsection/>
-       <TechSection/>
-       <MostComments />
+        {category == "all" ? (
+          <>
+            <Newsection />
+            <Trendingsection />
+            <TechSection />
+            <MostComments />
+          </>
+        ) : (
+          <CatgoryBase catgory={category} />
+        )}
       </Parent>
     </>
   );

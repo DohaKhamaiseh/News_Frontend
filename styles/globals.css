@@ -271,27 +271,25 @@
   display: flex;
   list-style: none;
   padding: 0;
-  justify-content: space-between; 
+  justify-content: space-between;
   flex-wrap: wrap;
-  
 }
 
 .cards_item {
   display: flex;
   padding: 10px;
-  margin: 10px 10px; 
-  box-sizing: border-box; 
+  margin: 10px 10px;
+  box-sizing: border-box;
   flex-basis: calc(25% - 40px);
-  
 }
 
 @media (min-width: 70rem) {
   .cards_item {
-    width: 40%; 
+    width: 40%;
   }
 }
 
-@media (min-width: 56rem) and (max-width: 69.99rem) { 
+@media (min-width: 56rem) and (max-width: 69.99rem) {
   .cards_item {
     width: 33.3333%;
   }
@@ -302,7 +300,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  height: 100%; 
+  height: 100%;
 }
 
 .card_content_news {
@@ -317,17 +315,81 @@
   letter-spacing: 1px;
   /* text-transform: capitalize; */
   margin: 0px;
-  flex: 1
+  flex: 1;
 }
 
 .card_text {
-  font-size: 1rem; 
+  font-size: 1rem;
   line-height: 1.5;
-  margin-bottom: 1.25rem;    
+  margin-bottom: 1.25rem;
   font-weight: 400;
 }
 
-.title_box{
- 
+.title_box {
   background: linear-gradient(0deg, #007bff, #00cc99);
+}
+
+.nav {
+  height: 50px;
+  width: 100%;
+
+  position: relative;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
 }
