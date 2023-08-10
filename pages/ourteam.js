@@ -1,7 +1,20 @@
 import Head from "next/head";
 import SmallHeader from "@/components/SmallHeader";
 import { Parent } from "@/components/Parent";
+
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["home","common"])),
+    },
+  };
+}
+
 export default function OurTeam() {
+  const { t } = useTranslation();
   return (
     <>
       <Head>

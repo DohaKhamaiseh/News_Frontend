@@ -5,7 +5,21 @@ import { useRouter } from "next/router";
 import SmallHeader from "@/components/SmallHeader";
 import { Parent } from "@/components/Parent";
 
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["home","common"])),
+    },
+  };
+}
+
 export default function signUp() {
+
+  const { t } = useTranslation();
+
   const [alert, setAlert] = useState(false);
   const { signup } = useAuth();
   const router = useRouter();
@@ -61,7 +75,7 @@ export default function signUp() {
                 {/* Col  */}
                 <div className="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
                   <h3 className="pt-4 text-2xl text-center">
-                    Create an Account!
+                    {t("common:CreateAccount")}
                   </h3>
                   <form
                     className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
@@ -70,26 +84,26 @@ export default function signUp() {
                     <div className="mb-4 md:flex md:justify-between">
                       <div className="mb-4 md:mr-2 md:mb-0">
                         <label className="block mb-2 text-sm font-bold text-gray-700">
-                          First Name
+                         {t("common:FirstName")}
                         </label>
                         <input
                           className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                           id="firstName"
                           type="text"
-                          placeholder="First Name"
+                          placeholder= {t("common:FirstName")}
                           name="firstName"
                           required
                         />
                       </div>
                       <div className="md:ml-2">
                         <label className="block mb-2 text-sm font-bold text-gray-700">
-                          Last Name
+                        {t("common:LastName")}
                         </label>
                         <input
                           className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                           id="lastName"
                           type="text"
-                          placeholder="Last Name"
+                          placeholder= {t("common:LastName")}
                           name="lastName"
                           required
                         />
@@ -97,39 +111,39 @@ export default function signUp() {
                     </div>
                     <div className="mb-4">
                       <label className="block mb-2 text-sm font-bold text-gray-700">
-                        Email
+                      {t("common:Email")}
                       </label>
                       <input
                         className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                         id="email"
                         type="email"
-                        placeholder="Email"
+                        placeholder={t("common:Email")}
                         name="email"
                         required
                       />
                     </div>
                     <div className="mb-4">
                       <label className="block mb-2 text-sm font-bold text-gray-700">
-                        Username
+                      {t("common:username")} 
                       </label>
                       <input
                         className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                         id="username"
                         type="text"
-                        placeholder="Username"
+                        placeholder={t("common:username")} 
                         name="username"
                         required
                       />
                     </div>
                     <div className="mb-4">
                       <label className="block mb-2 text-sm font-bold text-gray-700">
-                        City
+                      {t("common:City")} 
                       </label>
                       <input
                         className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                         id="city"
                         type="text"
-                        placeholder="City"
+                        placeholder={t("common:City")} 
                         name="city"
                         required
                       />
@@ -137,7 +151,7 @@ export default function signUp() {
                     <div className="mb-4 md:flex md:justify-between">
                       <div className="mb-4 md:mr-2 md:mb-0">
                         <label className="block mb-2 text-sm font-bold text-gray-700">
-                          Password{" "}
+                        {t("common:pass")} {" "}
                           <span className="opacity-50">(+8char, A-Z, a-z)</span>
                         </label>
                         <input
@@ -151,7 +165,7 @@ export default function signUp() {
                       </div>
                       <div className="md:ml-2">
                         <label className="block mb-2 text-sm font-bold text-gray-700">
-                          Confirm Password
+                        {t("common:pass_c")}
                         </label>
                         <input
                           className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -168,15 +182,14 @@ export default function signUp() {
                         className="w-full px-4 py-2 font-bold text-white custom-teal-bg active:bg-teal-600 rounded-full hover:bg-bgDark focus:outline-none focus:shadow-outline"
                         type="submit"
                       >
-                        Register Account
+                         {t("common:RegisterAccount")}
+                         
                       </button>
                       <div>
                         {" "}
                         {alert ? (
                           <p className="inline-block text-sm text-red-500 align-baseline mt-5">
-                            Your password must contain : Capital letter, Small
-                            letter, Number and +8 character !!! or your Confirm
-                            password is diffrent !!!
+                           {t("common:alert_pass")}
                           </p>
                         ) : (
                           ""
@@ -189,7 +202,8 @@ export default function signUp() {
                         className="inline-block text-sm  text-teal-600  align-baseline hover:text-bgDark"
                         href="/signin"
                       >
-                        Already have an account? Login!
+                        {t("common:account")}
+                       
                       </Link>
                     </div>
                   </form>
