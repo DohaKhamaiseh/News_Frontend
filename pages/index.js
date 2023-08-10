@@ -6,6 +6,8 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Newsection from "@/components/Newsection";
 import Trendingsection from "@/components/Trendingsection";
+import TechSection from "@/components/TechSection";
+import MostComments from "@/components/MostComments";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -35,8 +37,10 @@ export default function Home() {
             {lang === "eng" ? "click" : "كبسة"}
           </button>
         </div> */}
-        <Newsection />
-        <Trendingsection />
+        <Newsection/>
+       <Trendingsection/>
+       <TechSection/>
+       <MostComments />
       </Parent>
     </>
   );
