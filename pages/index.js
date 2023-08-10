@@ -14,7 +14,7 @@ import CatgoryBase from "@/components/CatgoryBase";
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home", ""])),
+      ...(await serverSideTranslations(locale, ["home", "common"])),
     },
   };
 }
@@ -31,7 +31,7 @@ export default function Home() {
       </Head>
       <Parent>
         <NavBar setCategory={setCategory} />
-
+{/* 
         {category == "all" ? (
           <>
             <Newsection />
@@ -41,7 +41,7 @@ export default function Home() {
           </>
         ) : (
           <CatgoryBase catgory={category} />
-        )}
+        )} */}
       </Parent>
     </>
   );

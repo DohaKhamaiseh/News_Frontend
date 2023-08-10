@@ -1,8 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import { useEffect } from "react";
+import { useTranslation } from "next-i18next";
 
 export default function NavBar({ setCategory }) {
+  const { t } = useTranslation();
   useEffect(() => {
     // When the user scrolls the page, execute myFunction
     window.addEventListener("scroll", handleScroll);
@@ -30,25 +32,25 @@ export default function NavBar({ setCategory }) {
     >
       <div className="nav-links flex justify-center">
         <Link href="/" onClick={() => setCategory("all")}>
-          Home
+        {t("home:home")}
         </Link>
         <Link href="/" onClick={() => setCategory("News")}>
-          News
+        {t("home:news_cat")}
         </Link>
         <Link href="/" onClick={() => setCategory("Entertinment")}>
-          Entertinment
+        {t("home:enter_cat")}
         </Link>
         <Link href="/" onClick={() => setCategory("Sports")}>
-          Sports
+        {t("home:sport_cat")}
         </Link>
         <Link href="/" onClick={() => setCategory("Technolgy")}>
-          Technolgy
+        {t("home:tech_cat")}
         </Link>
         <Link href="/" onClick={() => setCategory("Energy")}>
-          Energy
+         {t("home:eng_cat")}
         </Link>
         <Link href="/" onClick={() => setCategory("Trending")}>
-          Trending
+        {t("home:trending_cat")}
         </Link>
       </div>
     </div>

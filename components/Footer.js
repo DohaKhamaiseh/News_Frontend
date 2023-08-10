@@ -6,8 +6,11 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
+
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="bg-bgLight py-9 dark:bg-bgDark ">
       <div className="  flex items-center justify-around ">
@@ -53,12 +56,12 @@ export default function Footer() {
         <div className="text-white text-center">
           <Link href="./aboutus">
             <p className="mb-2 text-gray-900 dark:text-fontDark font-bold">
-              About Us
+              {t("common:AboutUs")}
             </p>
           </Link>
           <Link href="./ourteam">
             <p className="text-gray-900 dark:text-fontDark font-bold">
-              Our Team
+            {t("common:OurTeam")}
             </p>
           </Link>
         </div>
