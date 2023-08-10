@@ -30,6 +30,18 @@ export default function useNews(){
             handleError(err);
         }
     }
+    async function fetchAllNews(info) {
+        try {
+            const url = `${apiUrl}Get_News/`
+            const response = await fetch(url, config());
+
+            const responseJSON = await response.json();
+
+            return responseJSON;
+        } catch (err) {
+            handleError(err);
+        }
+    }
     async function createNews(info) {
         try {
             const url = `${apiUrl}Create_News/`
@@ -78,6 +90,7 @@ export default function useNews(){
         fetchNews,
         createNews,
         deleteNews,
+        fetchAllNews,
     };    
 }
 
