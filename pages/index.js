@@ -8,11 +8,10 @@ import Newsection from "@/components/Newsection";
 import Trendingsection from "@/components/Trendingsection";
 import TechSection from "@/components/TechSection";
 
-
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home"])),
+      ...(await serverSideTranslations(locale, ["home", ""])),
     },
   };
 }
@@ -21,8 +20,7 @@ export default function Home() {
   // const { lang, langSetter } = useAuth();
   // const [lang, setLang] = useState("eng")
   const { t } = useTranslation();
-  
-  
+
   return (
     <>
       <Head>

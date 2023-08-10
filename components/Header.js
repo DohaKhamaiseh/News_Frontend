@@ -1,27 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../context/auth";
 import { useApi3 } from "../hooks/useApi";
 import { useState } from "react";
 import Link from "next/link";
 import SmallHeader from "./SmallHeader";
+import Cookies from "js-cookie";
 
 export default function Header() {
-  const { login, user, logout } = useAuth();
+  const { user, logout } = useAuth();
   const location = user?.location;
   const username = user?.username;
   // console.log(user)
   // console.log(location)
   const { data, loading, error } = useApi3(location);
-  const [Mode, setMode] = useState("light");
+
   const handleMode = () => {
     let htmlClasses = document.documentElement.classList;
 
     if (htmlClasses.contains("dark")) {
       document.documentElement.classList.remove("dark");
+      Cookies.remove("dark", "dark");
     } else {
       document.documentElement.classList.add("dark");
+      Cookies.set("dark", "dark");
     }
   };
+  useEffect(() => {
+    if (Cookies.get("dark")) {
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
 
   return (
     <>
@@ -98,7 +106,7 @@ export default function Header() {
                   {Math.round(data) - 273}°C
                 </span>
                 <text className="  ml-2 font-larg px-6 py-4 text-xs dark:text-teal-600  text-gray-900 font-bold">
-                  {username}
+                  {user.username}
                 </text>
 
                 <a
