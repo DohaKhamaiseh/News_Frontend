@@ -6,7 +6,19 @@ import { useRouter } from "next/router";
 import SmallHeader from "@/components/SmallHeader";
 import { Parent } from "@/components/Parent";
 
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["home","common"])),
+    },
+  };
+}
+
 export default function signIn() {
+  const { t } = useTranslation();
   const { login, user } = useAuth();
   const router = useRouter();
 
@@ -72,7 +84,7 @@ export default function signIn() {
                 {/* Col  */}
                 <div className="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
                   <h3 className="pt-4 text-2xl text-center">
-                    Signin to your account!
+                  {t("common:youraccount")}
                   </h3>
                   <form
                     className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
@@ -80,13 +92,13 @@ export default function signIn() {
                   >
                     <div className="mb-4">
                       <label className="block mb-2 text-sm font-bold text-gray-700">
-                        Username
+                      {t("common:username")}
                       </label>
                       <input
                         className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                         id="username"
                         type="text"
-                        placeholder="Username"
+                        placeholder={t("common:username")}
                         name="Name"
                         required
                       />
@@ -98,7 +110,7 @@ export default function signIn() {
                     <div className="mb-4">
                       <div className="mb-4 md:mr-2 md:mb-0">
                         <label className="block mb-2 text-sm font-bold text-gray-700">
-                          Password
+                        {t("common:pass")}
                         </label>
                         <input
                           className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -118,7 +130,7 @@ export default function signIn() {
                         className="w-full px-4 py-2 font-bold text-white custom-teal-bg active:bg-teal-600 rounded-full hover:bg-bgDark focus:outline-none focus:shadow-outline"
                         type="submit"
                       >
-                        Register Account
+                       {t("common:RegisterAccount")}
                       </button>
                     </div>
                     <hr className="mb-6 border-t" />
@@ -127,7 +139,7 @@ export default function signIn() {
                         className="inline-block text-sm text-teal-600  align-baseline hover:text-bgDark"
                         href="/signup"
                       >
-                        Don't have an account? Signup!
+                        {t("common:noaccount")}
                       </Link>
                     </div>
                   </form>

@@ -19,5 +19,10 @@
   "Tuesday": "الثلاثاء",
   "Wednesday": "الأربعاء",
   "welcome_msg": "مرحبًا بك في تطبيقي!",
-  "language": "اللغة"
+  "language": "اللغة",
+  "news_cat"  : "الأخبار",
+  "trending_cat"  : "الأكثر تفاعلاً",
+  "sport_cat"  : "الرياضة",
+  "enter_cat"  : "الترفيه"
+ 
 }

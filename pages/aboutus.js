@@ -1,6 +1,14 @@
 import { Parent } from "@/components/Parent";
-
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["home","common"])),
+    },
+  };
+}
 
 export default function aboutus() {
   const { t } = useTranslation();
@@ -25,27 +33,15 @@ export default function aboutus() {
           </div>
           <div className="md:7/12 lg:w-6/12 font-serif">
             <h2 className="text-6xl text-gray-900 font-bold md:text-4xl dark:text-fontDark">
-              About Dailypulse App
+           {t("common:AboutApp")}
             </h2>
             <p className="mt-6 text-gray-600 dark:text-fontDark">
-              Welcome to Daily Pulse, a premier digital platform that harnesses
-              the power of cutting-edge technology to deliver real-time, global
-              news. Established in 2023, we leverage APIs to collate and curate
-              news from a myriad of reliable sources across the globe. Our aim
-              is to provide you with a comprehensive, balanced, and diverse
-              perspective on world events, right at your fingertips. Through
-              intelligent algorithms, we filter through the noise to offer you
-              the most significant stories spanning numerous topics, including
-              politics, science, technology, business, and culture. Our team of
-              data scientists and experienced editors work tirelessly to ensure
-              the accuracy and timeliness of the information we provide.
+            {t("common:aboutpara1")}
             </p>
 
             <p className="mt-4 text-gray-600 dark:text-fontDark">
               {" "}
-              Daily Pulse is your one-stop solution for instant access to the
-              pulse of the world, helping you stay informed, connected, and
-              empowered in an ever-evolving global landscape.
+              {t("common:aboutpara2")}
             </p>
           </div>
         </div>
