@@ -1,7 +1,9 @@
 import { Parent } from "@/components/Parent";
-import SmallHeader from "@/components/SmallHeader";
+
+import { useTranslation } from "next-i18next";
 
 export default function aboutus() {
+  const { t } = useTranslation();
   return (
     <>
       <Parent>
