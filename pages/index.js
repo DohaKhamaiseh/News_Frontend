@@ -31,17 +31,18 @@ export default function Home() {
       </Head>
       <Parent>
         <NavBar setCategory={setCategory} />
-{/* 
+
         {category == "all" ? (
           <>
             <Newsection />
             <Trendingsection />
             <TechSection />
+
             <MostComments />
           </>
         ) : (
           <CatgoryBase catgory={category} />
-        )} */}
+        )}
       </Parent>
     </>
   );

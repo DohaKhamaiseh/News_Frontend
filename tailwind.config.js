@@ -27,9 +27,12 @@ module.exports = {
         fontDark: "#F6FFF8",
         signup: "#02a8ae",
       },
-      width:{
-        "120" : "35rem"
-      }
+      width: {
+        120: "35rem",
+      },
+      gap: {
+        100: "40rem",
+      },
     },
   },
   plugins: [],

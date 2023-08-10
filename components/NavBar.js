@@ -28,29 +28,29 @@ export default function NavBar({ setCategory }) {
   return (
     <div
       id="navbar"
-      className="nav flex justify-center bg-bgLight dark:bg-bgDark dark:text-signup   outline outline-offset-2 outline-1 text-gray-900 outline-cyan-600 dark:outline-cyan-100"
+      className="nav flex justify-center bg-bgLight dark:bg-bgDark dark:text-signup  pb-2 outline outline-offset-2 outline-1 text-gray-900 outline-cyan-600 dark:outline-cyan-100"
     >
       <div className="nav-links flex justify-center">
         <Link href="/" onClick={() => setCategory("all")}>
-        {t("home:home")}
+          {t("home:home")}
         </Link>
         <Link href="/" onClick={() => setCategory("News")}>
-        {t("home:news_cat")}
+          {t("home:news_cat")}
         </Link>
         <Link href="/" onClick={() => setCategory("Entertinment")}>
-        {t("home:enter_cat")}
+          {t("home:enter_cat")}
         </Link>
         <Link href="/" onClick={() => setCategory("Sports")}>
-        {t("home:sport_cat")}
+          {t("home:sport_cat")}
         </Link>
         <Link href="/" onClick={() => setCategory("Technolgy")}>
-        {t("home:tech_cat")}
+          {t("home:tech_cat")}
         </Link>
         <Link href="/" onClick={() => setCategory("Energy")}>
-         {t("home:eng_cat")}
+          {t("home:eng_cat")}
         </Link>
         <Link href="/" onClick={() => setCategory("Trending")}>
-        {t("home:trending_cat")}
+          {t("home:trending_cat")}
         </Link>
       </div>
     </div>
