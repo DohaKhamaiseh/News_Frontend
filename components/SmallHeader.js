@@ -81,9 +81,7 @@ export default function SmallHeader() {
             {langs.map(({ code, name, countru_code }) => (
               <li key={countru_code}>
                 <Link href="" locale={code}>
-                  <button
-                  // disabled={code == currntlangcode}
-                  >
+                  <button>
                     <span className={`fi fi-${countru_code} mx-2`}></span>
                     {name}
                   </button>

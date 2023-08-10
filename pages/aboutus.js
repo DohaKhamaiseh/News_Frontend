@@ -5,7 +5,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home","common"])),
+      ...(await serverSideTranslations(locale, ["home", "common"])),
     },
   };
 }
@@ -33,10 +33,10 @@ export default function aboutus() {
           </div>
           <div className="md:7/12 lg:w-6/12 font-serif">
             <h2 className="text-6xl text-gray-900 font-bold md:text-4xl dark:text-fontDark">
-           {t("common:AboutApp")}
+              {t("common:AboutApp")}
             </h2>
             <p className="mt-6 text-gray-600 dark:text-fontDark">
-            {t("common:aboutpara1")}
+              {t("common:aboutpara1")}
             </p>
 
             <p className="mt-4 text-gray-600 dark:text-fontDark">

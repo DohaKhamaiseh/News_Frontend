@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useAuth } from "../context/auth";
 import { useApi3 } from "../hooks/useApi";
-import { useState } from "react";
+import { FaHome } from "react-icons/fa";
 import Link from "next/link";
 import SmallHeader from "./SmallHeader";
 import Cookies from "js-cookie";
+import { FaTemperatureHalf } from "react-icons/fa6";
 
 export default function Header() {
   const { user, logout } = useAuth();
@@ -36,7 +37,7 @@ export default function Header() {
       <SmallHeader />
       <header className="w-full  text-gray-700 bg-bgLight border-t border-b border-gray-300 dark:border-gray-600 shadow-sm body-font dark:bg-bgDark">
         <div className="container flex flex-col items-start justify-between p-8 mx-auto md:flex-row">
-          <a className="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0">
+          <a className="flex items-center mb-4  font-medium text-gray-900 title-font md:mb-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 80 80"
@@ -79,7 +80,7 @@ export default function Header() {
             </svg>
           </a>
 
-          <div className="justify-center pl-6 ml-6  mb-2   border-gray-200  mr-5 md:mr-auto ">
+          <div className="justify-center pl-6 mt-2  border-gray-200  mr-5 md:mr-auto ">
             <label className="switch">
               <span className="sun">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -99,15 +100,17 @@ export default function Header() {
             </label>
           </div>
 
-          <div className="items-center h-full">
+          <div className="items-center h-full flex gap-4">
             {user ? (
               <>
-                <span className="  ml-2 px-4 py-2 text-xs   dark:text-teal-600  text-gray-900 font-bold">
+                <span className=" py-2 text-l flex gap-2 dark:text-signup  text-gray-900 font-bold">
                   {Math.round(data) - 273}°C
+                  <FaTemperatureHalf size={23} />
                 </span>
-                <text className="  ml-2 font-larg px-6 py-4 text-xs dark:text-teal-600  text-gray-900 font-bold">
-                  {user.username}
-                </text>
+
+                <h2 className=" px-2 py-1 text-signup  outline-gray-900  font-bold outline dark:outline-white outline-1 rounded">
+                  {user.username.toUpperCase()}
+                </h2>
 
                 <a
                   className="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 custom-teal-bg rounded shadow outline-none active:bg-teal-600 hover:shadow-md focus:outline-none ease"
@@ -135,6 +138,9 @@ export default function Header() {
                 </Link>
               </>
             )}
+            <Link href="/">
+              <FaHome size={30} color="#02a8ae" />
+            </Link>
           </div>
         </div>
       </header>

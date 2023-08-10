@@ -25,6 +25,7 @@ module.exports = {
         buttonbg: "#6B9080",
 
         fontDark: "#F6FFF8",
+        signup: "#02a8ae",
       },
     },
   },
