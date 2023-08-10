@@ -50,7 +50,7 @@ export default function SmallHeader() {
       "https://worldtimeapi.org/api/timezone/Asia/Amman"
     );
     setDate(response.data);
-    console.log(response.data);
+    // console.log(response.data);
   }
   useEffect(() => {
     getDate();
