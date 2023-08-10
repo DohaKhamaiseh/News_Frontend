@@ -7,11 +7,10 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Newsection from "@/components/Newsection";
 import Trendingsection from "@/components/Trendingsection";
 
-
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home"])),
+      ...(await serverSideTranslations(locale, ["home", ""])),
     },
   };
 }
@@ -20,8 +19,7 @@ export default function Home() {
   // const { lang, langSetter } = useAuth();
   // const [lang, setLang] = useState("eng")
   const { t } = useTranslation();
-  
-  
+
   return (
     <>
       <Head>
@@ -37,8 +35,8 @@ export default function Home() {
             {lang === "eng" ? "click" : "كبسة"}
           </button>
         </div> */}
-        <Newsection/>
-       <Trendingsection/>
+        <Newsection />
+        <Trendingsection />
       </Parent>
     </>
   );
