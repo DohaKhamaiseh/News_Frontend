@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FaGlobeAsia, FaAngleDown, FaAngleUp } from "react-icons/fa";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import Cookies from "js-cookie";
 
 export default function SmallHeader() {
   const [show, setShow] = useState(false);
@@ -32,6 +33,19 @@ export default function SmallHeader() {
     t("home:Friday"),
     t("home:Saturday"),
   ];
+  function handleDir() {
+    const dir = document.documentElement.dir;
+    if (dir === "ltr") {
+      document.documentElement.dir = "rtl";
+      Cookies.set("dir", "rtl");
+      Cookies.set("lang", "ar");
+    } else {
+      document.documentElement.dir = "ltr";
+      Cookies.remove("dir", "rtl");
+      Cookies.remove("lang", "ar");
+    }
+    console.log(dir);
+  }
   const langs = [
     {
       code: "en",
@@ -52,7 +66,11 @@ export default function SmallHeader() {
     setDate(response.data);
     // console.log(response.data);
   }
+
   useEffect(() => {
+    if (Cookies.get("dir")) {
+      document.documentElement.dir = "rtl";
+    }
     getDate();
   }, []);
   const y = date.datetime.slice(0, 10).split("-")[0];
@@ -80,7 +98,7 @@ export default function SmallHeader() {
           <ul className="lang-dropdown">
             {langs.map(({ code, name, countru_code }) => (
               <li key={countru_code}>
-                <Link href="" locale={code}>
+                <Link href="" locale={code} onClick={handleDir}>
                   <button>
                     <span className={`fi fi-${countru_code} mx-2`}></span>
                     {name}
@@ -93,11 +111,11 @@ export default function SmallHeader() {
           ""
         )}
       </div>
-      <div className="flex gap-1">
-        <p>{y} -</p>
-        <p>{monthes[Number(m)]} -</p>
-        <p>{d}</p>
+      <div className="flex gap-1 px-10">
         <p>{days[date.day_of_week]}</p>
+        <p>- {d}</p>
+        <p>- {monthes[Number(m)]}</p>
+        <p>- {y}</p>
       </div>
     </header>
   );

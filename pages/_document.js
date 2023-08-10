@@ -3,7 +3,7 @@ import { AuthProvider } from "../context/auth";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="en" dir="ltr">
       <Head />
 
       <body>

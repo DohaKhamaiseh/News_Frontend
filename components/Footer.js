@@ -8,18 +8,17 @@ import {
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
-
 export default function Footer() {
   const { t } = useTranslation();
   return (
-    <footer className="bg-bgLight py-9 dark:bg-bgDark ">
+    <footer className="bg-bgLight py-9 border-t border-gray-900 dark:border-bgLight dark:bg-bgDark ">
       <div className="  flex items-center justify-around ">
         {/* Left Section */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 80 80"
-            width="100"
+            width="150"
             height="50"
           >
             <defs>
@@ -61,7 +60,7 @@ export default function Footer() {
           </Link>
           <Link href="./ourteam">
             <p className="text-gray-900 dark:text-fontDark font-bold">
-            {t("common:OurTeam")}
+              {t("common:OurTeam")}
             </p>
           </Link>
         </div>

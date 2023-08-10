@@ -13,7 +13,7 @@ export default function MostComments() {
       "https://news-back-end.vercel.app/api/v1/dailypulse/Get_all_News/"
     );
     setData(res.data);
-    console.log(res);
+    // console.log(res);
   }
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function MostComments() {
   }, []);
 
   return (
-    <div className="dark:bg-bgDark  bg-white">
+    <div className="dark:bg-bgDark pt-10 bg-white">
       <h1 className="text-2xl dark:text-white text-black flex">
         <span className="w-4 bg-black mx-2 title_box"> </span>
         Comments

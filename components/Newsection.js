@@ -6,7 +6,7 @@ export default function Newsection() {
   const { data, loading } = useApi("news");
 
   return (
-    <div className="dark:bg-bgDark  bg-white">
+    <div className="dark:bg-bgDark pt-10 bg-white">
       {loading ? (
         <h1>Loading...</h1>
       ) : (
