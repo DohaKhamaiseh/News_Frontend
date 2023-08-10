@@ -273,15 +273,16 @@
   padding: 0;
   justify-content: space-between; 
   flex-wrap: wrap;
-  flex-basis: calc(33.33% - 10px);
+  
 }
 
 .cards_item {
   display: flex;
-  padding: 20px;
-  flex: 1; 
+  padding: 10px;
   margin: 10px 10px; 
   box-sizing: border-box; 
+  flex-basis: calc(25% - 40px);
+  
 }
 
 @media (min-width: 70rem) {
@@ -306,6 +307,8 @@
 
 .card_content_news {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .card_title {
@@ -314,6 +317,7 @@
   letter-spacing: 1px;
   /* text-transform: capitalize; */
   margin: 0px;
+  flex: 1
 }
 
 .card_text {
@@ -321,4 +325,9 @@
   line-height: 1.5;
   margin-bottom: 1.25rem;    
   font-weight: 400;
+}
+
+.title_box{
+ 
+  background: linear-gradient(0deg, #007bff, #00cc99);
 }
