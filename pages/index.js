@@ -4,6 +4,8 @@ import { useAuth } from "@/context/auth";
 import { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Newsection from "@/components/Newsection";
+
 
 export async function getStaticProps({ locale }) {
   return {
@@ -17,7 +19,8 @@ export default function Home() {
   // const { lang, langSetter } = useAuth();
   // const [lang, setLang] = useState("eng")
   const { t } = useTranslation();
-
+  
+  
   return (
     <>
       <Head>
@@ -33,6 +36,8 @@ export default function Home() {
             {lang === "eng" ? "click" : "كبسة"}
           </button>
         </div> */}
+        <Newsection/>
+       
       </Parent>
     </>
   );
