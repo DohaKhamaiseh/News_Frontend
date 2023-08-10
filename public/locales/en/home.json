@@ -19,5 +19,9 @@
   "Tuesday": "Tuesday",
   "Wednesday": "Wednesday",
   "welcome_msg": "Welcome to my app!",
-  "language": "Language"
+  "language": "Language",
+  "news_cat"  : "News",
+  "trending_cat"  : "Trending",
+  "sport_cat"  : "Sport",
+  "enter_cat"  : "Entertainment"
 }
