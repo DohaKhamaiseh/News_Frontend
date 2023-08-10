@@ -1,33 +1,36 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaGlobeAsia, FaAngleDown, FaAngleUp } from "react-icons/fa";
+import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export default function SmallHeader() {
   const [show, setShow] = useState(false);
   const [date, setDate] = useState({ datetime: "" });
+  const { t } = useTranslation();
   const monthes = [
     "",
-    "يناير",
-    "فبراير",
-    "مارس",
-    "أبريل",
-    "مايو",
-    "يونيو",
-    "يوليو",
-    "أغسطس",
-    "سبتمبر",
-    "أكتوبر",
-    "نوفمبر",
-    "ديسمبر",
+    t("home:January"),
+    t("home:February"),
+    t("home:March"),
+    t("home:April"),
+    t("home:May"),
+    t("home:June"),
+    t("home:July"),
+    t("home:August"),
+    t("home:September"),
+    t("home:October"),
+    t("home:November"),
+    t("home:December"),
   ];
   const days = [
-    "الأحد",
-    "الأثنين",
-    "الثلاثاء",
-    "الأربعاء",
-    "الخميس",
-    "الجمعه",
-    "السبت",
+    t("home:Sunday"),
+    t("home:Monday"),
+    t("home:Tuesday"),
+    t("home:Wednesday"),
+    t("home:Thursday"),
+    t("home:Friday"),
+    t("home:Saturday"),
   ];
   const langs = [
     {
@@ -47,7 +50,7 @@ export default function SmallHeader() {
       "https://worldtimeapi.org/api/timezone/Asia/Amman"
     );
     setDate(response.data);
-    console.log(response.data);
+    // console.log(response.data);
   }
   useEffect(() => {
     getDate();
@@ -56,7 +59,7 @@ export default function SmallHeader() {
   const m = date.datetime.slice(0, 10).split("-")[1];
   const d = date.datetime.slice(0, 10).split("-")[2];
   return (
-    <header className="p-2 flex justify-between bg-minHeaderLight dark:bg-minHeaderDark">
+    <header className="p-2 flex justify-between bg-gray-600 ">
       <div>
         <button
           className="mx-20 flex justify-between"
@@ -70,24 +73,21 @@ export default function SmallHeader() {
             })
           }
         >
-          Language {show ? <FaAngleUp size={15} /> : <FaAngleDown size={15} />}{" "}
+          {show ? <FaAngleUp size={15} /> : <FaAngleDown size={15} />}{" "}
           <FaGlobeAsia size={23} />
         </button>
         {show ? (
           <ul className="lang-dropdown">
             {langs.map(({ code, name, countru_code }) => (
               <li key={countru_code}>
-                <button
-
-                // onClick={() => i18next.changeLanguage(code)}
-                // disabled={code == currntlangcode}
-                >
-                  <span
-                    className={`fi fi-${countru_code} mx-2`}
-                    //   style={{ opacity: code === currntlangcode ? 0.5 : 1 }}
-                  ></span>
-                  {name}
-                </button>
+                <Link href="" locale={code}>
+                  <button
+                  // disabled={code == currntlangcode}
+                  >
+                    <span className={`fi fi-${countru_code} mx-2`}></span>
+                    {name}
+                  </button>
+                </Link>
               </li>
             ))}
           </ul>

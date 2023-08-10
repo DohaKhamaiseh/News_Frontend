@@ -1,0 +1,23 @@
+{
+  "April": "أبريل",
+  "August": "أغسطس",
+  "December": "ديسمبر",
+  "February": "فبراير",
+  "Friday": "جمعة",
+  "January": "يناير",
+  "July": "يوليو",
+  "June": "يونيو",
+  "March": "مارس",
+  "May": "مايو",
+  "Monday": "الاثنين",
+  "November": "نوفمبر",
+  "October": "اكتوبر",
+  "Saturday": "السبت",
+  "September": "سبتمبر",
+  "Sunday": "الأحد",
+  "Thursday": "الخميس",
+  "Tuesday": "الثلاثاء",
+  "Wednesday": "الأربعاء",
+  "welcome_msg": "مرحبًا بك في تطبيقي!",
+  "language": "اللغة"
+}

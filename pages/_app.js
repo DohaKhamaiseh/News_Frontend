@@ -1,14 +1,15 @@
 import "@/styles/globals.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-
+import { appWithTranslation } from "next-i18next";
 
 import { AuthProvider } from "../context/auth";
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
     <AuthProvider>
       <Component {...pageProps} />
     </AuthProvider>
   );
-
 }
+
+export default appWithTranslation(App);
