@@ -1,10 +1,11 @@
 import React from "react";
 import { Carousel, Typography } from "@material-tailwind/react";
+import Loader from "./Loader";
 export default function CarouselC({ data, loading }) {
   return (
     <>
       {loading ? (
-        <h2>loading ... </h2>
+        <Loader />
       ) : (
         <Carousel className="rounded-xl  " dir="ltr">
           {data.articles.slice(0, 3).map((item) => (

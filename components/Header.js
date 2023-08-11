@@ -7,6 +7,7 @@ import SmallHeader from "./SmallHeader";
 import Cookies from "js-cookie";
 import { FaTemperatureHalf } from "react-icons/fa6";
 import { useTranslation } from "next-i18next";
+import Temp from "./Temp";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -106,10 +107,14 @@ export default function Header() {
         <div className="items-center h-full flex gap-4">
           {user ? (
             <>
-              <span className=" py-2 text-l flex gap-2 dark:text-signup  text-gray-900 font-bold">
-                {Math.round(dataLo) - 273}°C
-                <FaTemperatureHalf size={23} />
-              </span>
+              {true ? (
+                <Temp />
+              ) : (
+                <span className=" py-2 text-l flex gap-2 dark:text-signup  text-gray-900 font-bold">
+                  {Math.round(dataLo) - 273}°C
+                  <FaTemperatureHalf size={23} />
+                </span>
+              )}
 
               <h2 className=" px-2 py-1 text-signup  outline-gray-900  font-bold outline dark:outline-white outline-1 rounded">
                 {username.toUpperCase()}

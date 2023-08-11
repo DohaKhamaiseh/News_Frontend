@@ -11,6 +11,7 @@ import MostComments from "@/components/MostComments";
 import NavBar from "@/components/NavBar";
 import CatgoryBase from "@/components/CatgoryBase";
 import HeroSection from "@/components/HeroSection";
+import Loader from "@/components/Loader";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -31,14 +32,14 @@ export default function Home() {
         <title>Home</title>
       </Head>
       <Parent>
-        <NavBar setCategory={setCategory} />
+        <NavBar setCategory={setCategory} catgory={category} />
 
         {category == "all" ? (
           <>
-            <HeroSection />
+            {/* <HeroSection />
             <Newsection />
             <Trendingsection />
-            <TechSection />
+            <TechSection /> */}
             {/* <br />
             <br />
             <br />

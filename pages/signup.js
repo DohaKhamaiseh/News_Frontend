@@ -11,13 +11,12 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home","common"])),
+      ...(await serverSideTranslations(locale, ["home", "common"])),
     },
   };
 }
 
 export default function signUp() {
-
   const { t } = useTranslation();
 
   const [alert, setAlert] = useState(false);
@@ -84,26 +83,26 @@ export default function signUp() {
                     <div className="mb-4 md:flex md:justify-between">
                       <div className="mb-4 md:mr-2 md:mb-0">
                         <label className="block mb-2 text-sm font-bold text-gray-700">
-                         {t("common:FirstName")}
+                          {t("common:FirstName")}
                         </label>
                         <input
                           className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                           id="firstName"
                           type="text"
-                          placeholder= {t("common:FirstName")}
+                          placeholder={t("common:FirstName")}
                           name="firstName"
                           required
                         />
                       </div>
                       <div className="md:ml-2">
                         <label className="block mb-2 text-sm font-bold text-gray-700">
-                        {t("common:LastName")}
+                          {t("common:LastName")}
                         </label>
                         <input
                           className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                           id="lastName"
                           type="text"
-                          placeholder= {t("common:LastName")}
+                          placeholder={t("common:LastName")}
                           name="lastName"
                           required
                         />
@@ -111,7 +110,7 @@ export default function signUp() {
                     </div>
                     <div className="mb-4">
                       <label className="block mb-2 text-sm font-bold text-gray-700">
-                      {t("common:Email")}
+                        {t("common:Email")}
                       </label>
                       <input
                         className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -124,26 +123,26 @@ export default function signUp() {
                     </div>
                     <div className="mb-4">
                       <label className="block mb-2 text-sm font-bold text-gray-700">
-                      {t("common:username")} 
+                        {t("common:username")}
                       </label>
                       <input
                         className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                         id="username"
                         type="text"
-                        placeholder={t("common:username")} 
+                        placeholder={t("common:username")}
                         name="username"
                         required
                       />
                     </div>
                     <div className="mb-4">
                       <label className="block mb-2 text-sm font-bold text-gray-700">
-                      {t("common:City")} 
+                        {t("common:City")}
                       </label>
                       <input
                         className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                         id="city"
                         type="text"
-                        placeholder={t("common:City")} 
+                        placeholder={t("common:City")}
                         name="city"
                         required
                       />
@@ -151,7 +150,7 @@ export default function signUp() {
                     <div className="mb-4 md:flex md:justify-between">
                       <div className="mb-4 md:mr-2 md:mb-0">
                         <label className="block mb-2 text-sm font-bold text-gray-700">
-                        {t("common:pass")} {" "}
+                          {t("common:pass")}{" "}
                           <span className="opacity-50">(+8char, A-Z, a-z)</span>
                         </label>
                         <input
@@ -165,7 +164,7 @@ export default function signUp() {
                       </div>
                       <div className="md:ml-2">
                         <label className="block mb-2 text-sm font-bold text-gray-700">
-                        {t("common:pass_c")}
+                          {t("common:pass_c")}
                         </label>
                         <input
                           className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -182,14 +181,13 @@ export default function signUp() {
                         className="w-full px-4 py-2 font-bold text-white custom-teal-bg active:bg-teal-600 rounded-full hover:bg-bgDark focus:outline-none focus:shadow-outline"
                         type="submit"
                       >
-                         {t("common:RegisterAccount")}
-                         
+                        {t("common:RegisterAccount")}
                       </button>
                       <div>
                         {" "}
                         {alert ? (
                           <p className="inline-block text-sm text-red-500 align-baseline mt-5">
-                           {t("common:alert_pass")}
+                            {t("common:alert_pass")}
                           </p>
                         ) : (
                           ""
@@ -203,7 +201,6 @@ export default function signUp() {
                         href="/signin"
                       >
                         {t("common:account")}
-                       
                       </Link>
                     </div>
                   </form>

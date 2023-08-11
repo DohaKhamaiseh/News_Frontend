@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
-export default function NavBar({ setCategory }) {
+export default function NavBar({ setCategory, catgory }) {
   const { t } = useTranslation();
   useEffect(() => {
     // When the user scrolls the page, execute myFunction
@@ -31,25 +31,73 @@ export default function NavBar({ setCategory }) {
       className="nav flex justify-center z-10 bg-bgLight dark:bg-bgDark dark:text-signup  pb-2 outline  outline-1 text-gray-900 outline-cyan-600 dark:outline-cyan-100"
     >
       <div className="nav-links flex justify-center">
-        <Link href="/" onClick={() => setCategory("all")}>
+        <Link
+          href="/"
+          onClick={() => setCategory("all")}
+          style={
+            catgory == "all" ? { backgroundColor: "rgba(0, 0, 0, 0.3)" } : {}
+          }
+        >
           {t("home:home")}
         </Link>
-        <Link href="/" onClick={() => setCategory("News")}>
+        <Link
+          href="/"
+          onClick={() => setCategory("News")}
+          style={
+            catgory == "News" ? { backgroundColor: "rgba(0, 0, 0, 0.3)" } : {}
+          }
+        >
           {t("home:news_cat")}
         </Link>
-        <Link href="/" onClick={() => setCategory("Entertainment")}>
+        <Link
+          href="/"
+          onClick={() => setCategory("Entertainment")}
+          style={
+            catgory == "Entertainment"
+              ? { backgroundColor: "rgba(0, 0, 0, 0.3)" }
+              : {}
+          }
+        >
           {t("home:enter_cat")}
         </Link>
-        <Link href="/" onClick={() => setCategory("Sports")}>
+        <Link
+          href="/"
+          onClick={() => setCategory("Sports")}
+          style={
+            catgory == "Sports" ? { backgroundColor: "rgba(0, 0, 0, 0.3)" } : {}
+          }
+        >
           {t("home:sport_cat")}
         </Link>
-        <Link href="/" onClick={() => setCategory("Technology")}>
+        <Link
+          href="/"
+          onClick={() => setCategory("Technology")}
+          style={
+            catgory == "Technology"
+              ? { backgroundColor: "rgba(0, 0, 0, 0.3)" }
+              : {}
+          }
+        >
           {t("home:tech_cat")}
         </Link>
-        <Link href="/" onClick={() => setCategory("Energy")}>
+        <Link
+          href="/"
+          onClick={() => setCategory("Energy")}
+          style={
+            catgory == "Energy" ? { backgroundColor: "rgba(0, 0, 0, 0.3)" } : {}
+          }
+        >
           {t("home:eng_cat")}
         </Link>
-        <Link href="/" onClick={() => setCategory("Trending")}>
+        <Link
+          href="/"
+          onClick={() => setCategory("Trending")}
+          style={
+            catgory == "Trending"
+              ? { backgroundColor: "rgba(0, 0, 0, 0.3)" }
+              : {}
+          }
+        >
           {t("home:trending_cat")}
         </Link>
       </div>

@@ -5,11 +5,12 @@ import { appWithTranslation } from "next-i18next";
 
 import { AuthProvider } from "../context/auth";
 import { Suspense } from "react";
+import Loader from "@/components/Loader";
 
 function App({ Component, pageProps }) {
   return (
     <AuthProvider>
-      <Suspense fallback>
+      <Suspense fallback={Loader}>
         <Component {...pageProps} />
       </Suspense>
     </AuthProvider>
