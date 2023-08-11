@@ -6,12 +6,13 @@ export default function Newsection() {
   const { data, loading } = useApi("news");
 
   return (
-    <div className="dark:bg-bgDark pt-10 bg-white">
+    <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
       {loading ? (
         <h1>Loading...</h1>
       ) : (
         <>
           {" "}
+          <hr className="mb-6 border-t border-gray-300 dark:border-gray-600" />{" "}
           <h1 className="text-2xl dark:text-white text-black flex">
             {" "}
             <span className="w-4 bg-black mx-2 title_box"> </span>News{" "}

@@ -5,7 +5,7 @@ import { FaAngleRight } from "react-icons/fa";
 export default function Trendingsection() {
   const { data, loading } = useApi("trending");
   return (
-    <div className="dark:bg-bgDark pt-10 bg-white">
+    <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
       {loading ? (
         <h1>Loading...</h1>
       ) : (

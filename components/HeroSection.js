@@ -15,7 +15,7 @@ function HeroSection() {
       {loadingAr ? (
         <h2>loading..</h2>
       ) : (
-        <div className="flex gap-10 py-10 bg-bgLight dark:bg-bgDark px-80">
+        <div className="flex gap-10 py-10 bg-bgLight dark:bg-bgDark  2xl:px-40">
           {Cookies.get("lang") ? (
             <>
               <CarouselC data={dataAr} loading={loadingAr} />
