@@ -36,10 +36,10 @@ export default function Home() {
 
         {category == "all" ? (
           <>
-            {/* <HeroSection />
+            <HeroSection />
             <Newsection />
             <Trendingsection />
-            <TechSection /> */}
+            <TechSection />
             {/* <br />
             <br />
             <br />

@@ -107,7 +107,7 @@ export default function Header() {
         <div className="items-center h-full flex gap-4">
           {user ? (
             <>
-              {true ? (
+              {loadingLo ? (
                 <Temp />
               ) : (
                 <span className=" py-2 text-l flex gap-2 dark:text-signup  text-gray-900 font-bold">
