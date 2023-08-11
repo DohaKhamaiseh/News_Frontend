@@ -37,13 +37,13 @@ export default function NavBar({ setCategory }) {
         <Link href="/" onClick={() => setCategory("News")}>
           {t("home:news_cat")}
         </Link>
-        <Link href="/" onClick={() => setCategory("Entertinment")}>
+        <Link href="/" onClick={() => setCategory("Entertainment")}>
           {t("home:enter_cat")}
         </Link>
         <Link href="/" onClick={() => setCategory("Sports")}>
           {t("home:sport_cat")}
         </Link>
-        <Link href="/" onClick={() => setCategory("Technolgy")}>
+        <Link href="/" onClick={() => setCategory("Technology")}>
           {t("home:tech_cat")}
         </Link>
         <Link href="/" onClick={() => setCategory("Energy")}>
