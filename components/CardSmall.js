@@ -1,10 +1,11 @@
 import React from "react";
+import { Chip } from "@material-tailwind/react";
 
 export default function CardSmall({ item }) {
   return (
     <>
       <div
-        className="flex gap-3 h-40 border-gray-900 w-1/3"
+        className="flex gap-3 h-40 border-gray-900 w-full dark:border-signup"
         style={{ borderBottomWidth: "1px" }}
       >
         <img
@@ -16,7 +17,16 @@ export default function CardSmall({ item }) {
           height="150"
           className="object-scale-down"
         />
-        <h3 className="">{item.title}</h3>
+        <h3 className="w-2/3 font-bold pt-10 text-lg dark:text-fontDark">
+          {/* <span className="px-2  mx-2 bg-gray-600 outline outline-2 outline-signup">
+            {item.source.name}
+          </span> */}
+          <Chip
+            value={item.source.name}
+            className="dark:bg-bgLight text-center dark:text-gray-900"
+          />
+          {item.title}
+        </h3>
       </div>
     </>
   );

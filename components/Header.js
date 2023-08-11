@@ -128,7 +128,7 @@ export default function Header() {
               {/* onClick={() => login("amjad", "1234")} */}
               <Link
                 href="/signin"
-                className="mr-5  dark:text-teal-600  text-gray-900 font-bold"
+                className="mr-5  dark:text-signup  text-gray-900 font-bold"
               >
                 {t("common:Login")}
               </Link>

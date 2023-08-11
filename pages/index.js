@@ -35,10 +35,11 @@ export default function Home() {
 
         {category == "all" ? (
           <>
-            {/* <Newsection />
+            <HeroSection />
+            <Newsection />
             <Trendingsection />
-            <TechSection /> */}
-            {/* <HeroSection /> */}
+            <TechSection />
+            {/* <br />
             <br />
             <br />
             <br />
@@ -89,8 +90,7 @@ export default function Home() {
             <br />
             <br />
             <br />
-            <br />
-            <br />
+            <br /> */}
 
             <MostComments />
           </>

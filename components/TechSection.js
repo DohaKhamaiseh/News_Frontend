@@ -10,12 +10,13 @@ export default function TechSection() {
   const { dataAr, loadingAr } = useApi2("tech", "ar"); // en or ar from cookies
 
   return (
-    <div className="dark:bg-bgDark pt-10 bg-white">
+    <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40 ">
       {loading ? (
         <h1>Loading...</h1>
       ) : (
         <>
-          <h1 className="text-2xl dark:text-white text-black flex">
+          <hr className="mb-6 border-t border-gray-300 dark:border-gray-600" />{" "}
+          <h1 className="text-2xl dark:text-white text-black flex  pt-10  ">
             <span className="w-4 bg-black mx-2 title_box"> </span>
             Technology
             <span className="pt-1 pl-1">
@@ -23,7 +24,7 @@ export default function TechSection() {
               <FaAngleRight />{" "}
             </span>{" "}
           </h1>
-          <ul className="cards">
+          <ul className="cards  ">
             {Cookies.get("lang") ? (
               <>
                 {dataAr.articles.slice(0, 4).map((item, index) => (

@@ -21,7 +21,7 @@ export default function MostComments() {
   }, []);
 
   return (
-    <div className="dark:bg-bgDark pt-10 bg-white">
+    <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
       <h1 className="text-2xl dark:text-white text-black flex">
         <span className="w-4 bg-black mx-2 title_box"> </span>
         Comments
