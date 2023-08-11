@@ -4,6 +4,7 @@ import { FaAngleRight } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
 import Cookies from "js-cookie";
+import Loader from "./Loader";
 
 export default function TechSection() {
   const { data, loading } = useApi("technology");
@@ -12,7 +13,7 @@ export default function TechSection() {
   return (
     <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40 ">
       {loading ? (
-        <h1>Loading...</h1>
+        <Loader />
       ) : (
         <>
           <hr className="mb-6 border-t border-gray-300 dark:border-gray-600" />{" "}
