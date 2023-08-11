@@ -2,12 +2,12 @@ import Card from "@/components/Card";
 import { useApi, useApi2 } from "../hooks/useApi";
 import { FaAngleRight } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { document } from "postcss";
+
 import Cookies from "js-cookie";
 
 export default function TechSection() {
   const { data, loading } = useApi("technology");
-  const { dataAr, loadingAr } = useApi2("tech", "ar");
+  const { dataAr, loadingAr } = useApi2("tech", "ar"); // en or ar from cookies
 
   return (
     <div className="dark:bg-bgDark pt-10 bg-white">

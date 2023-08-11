@@ -28,7 +28,7 @@ export default function NavBar({ setCategory }) {
   return (
     <div
       id="navbar"
-      className="nav flex justify-center bg-bgLight dark:bg-bgDark dark:text-signup  pb-2 outline outline-offset-2 outline-1 text-gray-900 outline-cyan-600 dark:outline-cyan-100"
+      className="nav flex justify-center z-10 bg-bgLight dark:bg-bgDark dark:text-signup  pb-2 outline  outline-1 text-gray-900 outline-cyan-600 dark:outline-cyan-100"
     >
       <div className="nav-links flex justify-center">
         <Link href="/" onClick={() => setCategory("all")}>

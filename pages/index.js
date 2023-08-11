@@ -10,6 +10,7 @@ import TechSection from "@/components/TechSection";
 import MostComments from "@/components/MostComments";
 import NavBar from "@/components/NavBar";
 import CatgoryBase from "@/components/CatgoryBase";
+import HeroSection from "@/components/HeroSection";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -34,9 +35,62 @@ export default function Home() {
 
         {category == "all" ? (
           <>
-            <Newsection />
+            {/* <Newsection />
             <Trendingsection />
-            <TechSection />
+            <TechSection /> */}
+            {/* <HeroSection /> */}
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
 
             <MostComments />
           </>
