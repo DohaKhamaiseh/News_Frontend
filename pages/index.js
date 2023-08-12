@@ -96,7 +96,8 @@ export default function Home() {
             <MostComments />
           </>
         ) : (
-          <CatgoryBase catgory={category} />
+          // <CatgoryBase catgory={category} />
+          <b />
         )}
       </Parent>
     </>

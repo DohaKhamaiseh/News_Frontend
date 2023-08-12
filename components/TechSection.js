@@ -7,8 +7,14 @@ import Cookies from "js-cookie";
 import Loader from "./Loader";
 
 export default function TechSection() {
-  const { data, loading } = useApi("technology");
-  const { dataAr, loadingAr } = useApi2("tech", "ar"); // en or ar from cookies
+  const { data } = useApi("technology");
+  const { dataAr } = useApi2("tech", "ar");
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (data || dataAr) {
+      setLoading(false);
+    }
+  }, [data]);
 
   return (
     <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40 ">

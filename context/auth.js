@@ -20,24 +20,7 @@ export function AuthProvider(props) {
     login,
     logout,
     signup,
-    // lang: "eng",
-    // langSetter,
   });
-  //   function langSetter() {
-  //     setState((prevState) => {
-  //       let newState;
-  //       if (prevState.lang === "arb") {
-  //         newState = {
-  //           lang: "eng",
-  //         };
-  //       } else if (prevState.lang === "eng") {
-  //         newState = {
-  //           lang: "arb",
-  //         };
-  //       }
-  //       return { ...prevState, ...newState };
-  //     });
-  //   }
 
   async function login(username, password) {
     // const response = await axios.post(tokenUrl, { username, password });
@@ -62,9 +45,8 @@ export function AuthProvider(props) {
         id: decodedAccess.user_id,
         location: decodedAccess.location,
       },
-      
     };
-    console.log(decodedAccess)
+    console.log(decodedAccess);
 
     setState((prevState) => ({ ...prevState, ...newState }));
   }
