@@ -3,11 +3,18 @@ import { useApi } from "../hooks/useApi";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useTranslation } from "next-i18next";
 import Loader from "./Loader";
+import { useEffect, useState } from "react";
 
 export default function Newsection() {
   const { t } = useTranslation();
-  const { data, loading } = useApi("news");
-  // console.log(data.articles)
+  const { data } = useApi("news");
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+    }
+  }, [data]);
+
 
   return (
     <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">

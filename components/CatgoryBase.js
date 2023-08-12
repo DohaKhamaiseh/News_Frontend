@@ -2,21 +2,20 @@ import React from "react";
 import Carouselcat from "./Carouselcat";
 import { useApi, useApi2 } from "@/hooks/useApi";
 import Cookies from "js-cookie";
-import CarouselC from "./CarouselC"; 
+
 import Catgorysection from "./Catgorysection";
 import Loader from "./Loader";
+import { useState, useEffect } from "react";
 
 export default function CatgoryBase({ catgory }) {
-  const { data, loading } = useApi(catgory);
-  const { dataAr, loadingAr } = useApi2(catgory, "ar");
-
-
-  // return (
-  //   <>
-  //     {Cookies.get("lang") ? (
-  //       <CarouselC data={dataAr} />
-  //     ) : (
-  //       <CarouselC data={data} />
+  const { data } = useApi(catgory);
+  const { dataAr } = useApi2(catgory, "ar");
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (data || dataAr) {
+      setLoading(false);
+    }
+  }, [data]);
   return (
     <>
       {loading ? (
@@ -25,8 +24,8 @@ export default function CatgoryBase({ catgory }) {
         <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
           {Cookies.get("lang") ? (
             <>
-              <Carouselcat data={dataAr} loading={loadingAr} />
-              <Catgorysection data={dataAr} loading={loadingAr} />
+              <Carouselcat data={dataAr} loading={loading} />
+              <Catgorysection data={dataAr} loading={loading} />
             </>
           ) : (
             <>

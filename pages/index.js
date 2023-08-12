@@ -36,11 +36,13 @@ export default function Home() {
 
         {category == "all" ? (
           <>
-            {/* <HeroSection /> */}
+
             {/* <Newsection /> */}
-            {/* <Trendingsection />
-            <TechSection /> */}
-            {/* <br />
+            {/* <Trendingsection /> */}
+            {/* <TechSection /> */}
+            {/* <HeroSection /> */}
+            <br />
+            <br />
             <br />
             <br />
             <br />
@@ -96,7 +98,8 @@ export default function Home() {
             <MostComments />
           </>
         ) : (
-          <CatgoryBase catgory={category} />
+          // <CatgoryBase catgory={category} />
+          <b />
         )}
       </Parent>
     </>

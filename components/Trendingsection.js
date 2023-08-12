@@ -3,10 +3,17 @@ import { useApi } from "../hooks/useApi";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useTranslation } from "next-i18next";
 import Loader from "./Loader";
+import { useState, useEffect } from "react";
 
 export default function Trendingsection() {
   const { t } = useTranslation();
   const { data, loading } = useApi("trending");
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+    }
+  }, [data]);
+
   return (
     <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
       {loading ? (
