@@ -26,5 +26,6 @@
   "sport_cat"  : "Sport",
   "enter_cat"  : "Entertainment",  
   "tech_cat" : "Technology",
-  "eng_cat"  : "Energy"
+  "eng_cat"  : "Energy",
+  "comments":"Comments"
 }

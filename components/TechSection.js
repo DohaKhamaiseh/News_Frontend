@@ -1,12 +1,14 @@
 import Card from "@/components/Card";
 import { useApi, useApi2 } from "../hooks/useApi";
-import { FaAngleRight } from "react-icons/fa";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { useTranslation } from "next-i18next";
 
 import Cookies from "js-cookie";
 import Loader from "./Loader";
 
 export default function TechSection() {
+  const { t } = useTranslation()
   const { data } = useApi("technology");
   const { dataAr } = useApi2("tech", "ar");
   const [loading, setLoading] = useState(true);
@@ -25,11 +27,28 @@ export default function TechSection() {
           <hr className="mb-6 border-t border-gray-300 dark:border-gray-600" />{" "}
           <h1 className="text-2xl dark:text-white text-black flex  pt-10  ">
             <span className="w-4 bg-black mx-2 title_box"> </span>
-            Technology
+            {t('home:tech_cat') === 'Technology' ? (
+              <>
+                {t('home:tech_cat')}
+                <span className="pt-1 pl-1">
+                  <FaAngleRight />{" "}
+                </span>
+              </>
+            ) : (
+              <>
+                {t('home:tech_cat')}
+                <span className="pt-1 pl-1">
+                  <FaAngleLeft />{" "}
+                </span>
+              </>
+            )}
+
+
+            {/* {t('home:tech_cat')}
             <span className="pt-1 pl-1">
               {" "}
               <FaAngleRight />{" "}
-            </span>{" "}
+            </span>{" "} */}
           </h1>
           <ul className="cards  ">
             {Cookies.get("lang") ? (

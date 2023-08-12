@@ -2,6 +2,7 @@ import React from "react";
 import Carouselcat from "./Carouselcat";
 import { useApi, useApi2 } from "@/hooks/useApi";
 import Cookies from "js-cookie";
+
 import Catgorysection from "./Catgorysection";
 import Loader from "./Loader";
 import { useState, useEffect } from "react";
@@ -33,6 +34,7 @@ export default function CatgoryBase({ catgory }) {
             </>
           )}
         </div>
+
       )}
     </>
   );
