@@ -2,9 +2,16 @@ import Card from "@/components/Card";
 import { useApi } from "../hooks/useApi";
 import { FaAngleRight } from "react-icons/fa";
 import Loader from "./Loader";
+import { useState, useEffect } from "react";
 
 export default function Trendingsection() {
-  const { data, loading } = useApi("trending");
+  const { data } = useApi("trending");
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+    }
+  }, [data]);
   return (
     <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
       {loading ? (

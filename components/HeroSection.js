@@ -8,12 +8,19 @@ import Cookies from "js-cookie";
 import CarouselC from "./CarouselC";
 import Loader from "./Loader";
 function HeroSection() {
-  const { data, loading } = useApi("sports");
-  const { dataAr, loadingAr } = useApi2("sports", "ar");
+  const { data } = useApi("sports");
+  const { dataAr } = useApi2("sports", "ar");
+
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (data || dataAr) {
+      setLoading(false);
+    }
+  }, [data]);
 
   return (
     <>
-      {loadingAr ? (
+      {loading ? (
         <Loader />
       ) : (
         <div className="flex gap-10 py-10 bg-bgLight dark:bg-bgDark  2xl:px-40">
