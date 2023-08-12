@@ -9,7 +9,7 @@ export default function Trendingsection() {
   const { data } = useApi("trending");
   const [loading, setLoading] = useState(true);
   const { t } = useTranslation();
-  const { data, loading } = useApi("trending");
+
   useEffect(() => {
     if (data) {
       setLoading(false);
@@ -27,24 +27,21 @@ export default function Trendingsection() {
           <h1 className="text-2xl dark:text-white text-black flex">
             {" "}
             <span className="w-4 bg-black mx-2 title_box"> </span>
-            {t('home:trending_cat') === 'Trending' ? (
+            {t("home:trending_cat") === "Trending" ? (
               <>
-                {t('home:trending_cat')}
+                {t("home:trending_cat")}
                 <span className="pt-1 pl-1">
                   <FaAngleRight />{" "}
                 </span>
               </>
             ) : (
               <>
-                {t('home:trending_cat')}
+                {t("home:trending_cat")}
                 <span className="pt-1 pl-1">
                   <FaAngleLeft />{" "}
                 </span>
               </>
             )}
-
-
-
             {/* Trending{" "}
             <span className="pt-1 pl-1">
               {" "}
