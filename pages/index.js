@@ -36,7 +36,6 @@ export default function Home() {
 
         {category == "all" ? (
           <>
-
             {/* <Newsection /> */}
             {/* <Trendingsection /> */}
             {/* <TechSection /> */}
@@ -93,13 +92,12 @@ export default function Home() {
             <br />
             <br />
             <br />
-            <br /> 
 
             <MostComments />
           </>
         ) : (
           // <CatgoryBase catgory={category} />
-          <b />
+          <br />
         )}
       </Parent>
     </>
