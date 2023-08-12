@@ -7,6 +7,7 @@ import Loader from "./Loader";
 export default function Newsection() {
   const { t } = useTranslation();
   const { data, loading } = useApi("news");
+  // console.log(data.articles)
 
   return (
     <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
