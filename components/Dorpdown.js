@@ -1,92 +1,102 @@
-import { Fragment } from "react";
-import { Menu, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import React from "react";
+import {
+  Typography,
+  Button,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+  Avatar,
+} from "@material-tailwind/react";
+import { FaGlobeAsia, FaAngleDown, FaAngleUp } from "react-icons/fa";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 export default function Dropdown() {
-  return (
-    <Menu as="div" className="relative inline-block text-left">
-      <div>
-        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          Options
-          <ChevronDownIcon
-            className="-mr-1 h-5 w-5 text-gray-400"
-            aria-hidden="true"
-          />
-        </Menu.Button>
-      </div>
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [customSize, setCustomSize] = useState({});
+  const { t } = useTranslation();
 
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="py-1">
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  Account settings
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  Support
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  License
-                </a>
-              )}
-            </Menu.Item>
-            <form method="POST" action="#">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    type="submit"
-                    className={classNames(
-                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block w-full px-4 py-2 text-left text-sm"
-                    )}
-                  >
-                    Sign out
-                  </button>
-                )}
-              </Menu.Item>
-            </form>
-          </div>
-        </Menu.Items>
-      </Transition>
+  function handleDir() {
+    const dir = document.documentElement.dir;
+    if (dir === "ltr") {
+      document.documentElement.dir = "rtl";
+      Cookies.set("dir", "rtl");
+      Cookies.set("lang", "ar");
+      setCustomSize({ fontSize: "22px" });
+    } else {
+      document.documentElement.dir = "ltr";
+      Cookies.remove("dir", "rtl");
+      Cookies.remove("lang", "ar");
+      setCustomSize({ fontSize: "15px" });
+    }
+    // console.log(dir);
+  }
+
+  const closeMenu = () => setIsMenuOpen(false);
+  const langs = [
+    {
+      code: "en",
+      name: "English",
+      countru_code: "gb",
+      dir: "ltr",
+    },
+    {
+      code: "ar",
+      name: "العربية",
+      countru_code: "sa",
+      dir: "rtl",
+    },
+  ];
+
+  useEffect(() => {
+    if (Cookies.get("dir")) {
+      document.documentElement.dir = "rtl";
+      setCustomSize({ fontSize: "22px" });
+    }
+  }, []);
+
+  return (
+    <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
+      <MenuHandler>
+        <Button
+          variant="text"
+          color="blue-gray"
+          className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto text-signup "
+        >
+          <FaGlobeAsia size={25} className="text-signup" />
+          <span className="px-2 font-bold" style={customSize}>
+            {t("home:language")}
+          </span>
+        </Button>
+      </MenuHandler>
+      <MenuList className="p-1">
+        {langs.map(({ code, name, countru_code, dir }) => {
+          return (
+            <Link
+              key={code}
+              href="/"
+              locale={code}
+              onClick={() => {
+                if (document.documentElement.dir !== dir) {
+                  handleDir();
+                }
+              }}
+            >
+              <MenuItem
+                onClick={closeMenu}
+                className={`flex items-center gap-2 rounded `}
+              >
+                <Typography as="span" variant="small" className="font-normal">
+                  <span className={`fi fi-${countru_code} mx-2`}></span> {name}
+                </Typography>
+              </MenuItem>
+            </Link>
+          );
+        })}
+      </MenuList>
     </Menu>
   );
 }

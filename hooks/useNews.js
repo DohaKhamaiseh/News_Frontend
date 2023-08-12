@@ -34,7 +34,7 @@ export default function useNews() {
 
   async function fetchAllNews() {
     try {
-      console.log(apiUrl);
+      // console.log(apiUrl);
       const url = `${apiUrl}Get_all_News/`;
       const response = await fetch(url);
 

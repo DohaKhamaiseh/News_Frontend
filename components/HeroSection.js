@@ -6,16 +6,24 @@ import CardSmall from "./CardSmall";
 import { useApi2, useApi } from "@/hooks/useApi";
 import Cookies from "js-cookie";
 import CarouselC from "./CarouselC";
+import Loader from "./Loader";
 function HeroSection() {
-  const { data, loading } = useApi("sports");
-  const { dataAr, loadingAr } = useApi2("sports", "ar");
+  const { data } = useApi("sports");
+  const { dataAr } = useApi2("sports", "ar");
+
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (data || dataAr) {
+      setLoading(false);
+    }
+  }, [data]);
 
   return (
     <>
-      {loadingAr ? (
-        <h2>loading..</h2>
+      {loading ? (
+        <Loader />
       ) : (
-        <div className="flex gap-10 py-10 bg-bgLight dark:bg-bgDark px-80">
+        <div className="flex gap-10 py-10 bg-bgLight dark:bg-bgDark  2xl:px-40">
           {Cookies.get("lang") ? (
             <>
               <CarouselC data={dataAr} loading={loadingAr} />
