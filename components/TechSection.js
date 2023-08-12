@@ -1,11 +1,13 @@
 import Card from "@/components/Card";
 import { useApi, useApi2 } from "../hooks/useApi";
-import { FaAngleRight } from "react-icons/fa";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { useTranslation } from "next-i18next";
 
 import Cookies from "js-cookie";
 
 export default function TechSection() {
+  const { t } = useTranslation();
   const { data, loading } = useApi("technology");
   const { dataAr, loadingAr } = useApi2("tech", "ar"); // en or ar from cookies
 
@@ -17,11 +19,28 @@ export default function TechSection() {
         <>
           <h1 className="text-2xl dark:text-white text-black flex">
             <span className="w-4 bg-black mx-2 title_box"> </span>
-            Technology
+            {t('home:tech_cat') === 'Technology' ? (
+              <>
+                {t('home:tech_cat')}
+                <span className="pt-1 pl-1">
+                  <FaAngleRight />{" "}
+                </span>
+              </>
+            ) : (
+              <>
+                {t('home:tech_cat')}
+                <span className="pt-1 pl-1">
+                  <FaAngleLeft />{" "}
+                </span>
+              </>
+            )}
+
+
+            {/* {t('home:tech_cat')}
             <span className="pt-1 pl-1">
               {" "}
               <FaAngleRight />{" "}
-            </span>{" "}
+            </span>{" "} */}
           </h1>
           <ul className="cards">
             {Cookies.get("lang") ? (
