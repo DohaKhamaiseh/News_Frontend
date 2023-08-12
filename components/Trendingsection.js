@@ -2,14 +2,15 @@ import Card from "@/components/Card";
 import { useApi } from "../hooks/useApi";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useTranslation } from "next-i18next";
+import Loader from "./Loader";
 
 export default function Trendingsection() {
   const { t } = useTranslation();
   const { data, loading } = useApi("trending");
   return (
-    <div className="dark:bg-bgDark pt-10 bg-white">
+    <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
       {loading ? (
-        <h1>Loading...</h1>
+        <Loader />
       ) : (
         <>
           {" "}

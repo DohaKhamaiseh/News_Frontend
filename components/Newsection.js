@@ -2,18 +2,20 @@ import Card from "@/components/Card";
 import { useApi } from "../hooks/useApi";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useTranslation } from "next-i18next";
+import Loader from "./Loader";
 
 export default function Newsection() {
   const { t } = useTranslation();
   const { data, loading } = useApi("news");
 
   return (
-    <div className="dark:bg-bgDark pt-10 bg-white">
+    <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
       {loading ? (
-        <h1>Loading...</h1>
+        <Loader />
       ) : (
         <>
           {" "}
+          <hr className="mb-6 border-t border-gray-300 dark:border-gray-600" />{" "}
           <h1 className="text-2xl dark:text-white text-black flex">
             {" "}
             <span className="w-4 bg-black mx-2 title_box"> </span>

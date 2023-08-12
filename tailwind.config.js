@@ -32,9 +32,13 @@ module.exports = withMT({
       },
       width: {
         120: "35rem",
+        100: "40rem",
       },
       gap: {
         100: "40rem",
+      },
+      height: {
+        100: "32rem",
       },
     },
   },
