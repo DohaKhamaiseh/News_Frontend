@@ -7,13 +7,14 @@
 import useSWR from 'swr';
 
 export const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-import { useAuth } from '../contexts/auth';
+import { useAuth } from '../context/auth';
 
-export default function useComment(news_id) {
-    
-    const url = apiUrl + 'api/v1/dailypulse/get_comments/' + str(user.id);
-
+export default function useComment() {
     const { tokens, logout, user } = useAuth();
+    
+    const url = apiUrl + 'api/v1/dailypulse/get_comments/' + user.id;
+
+   
     const { data, error,isLoading, mutate } = useSWR([url, tokens], fetchCommentUser);
   
 
@@ -21,7 +22,7 @@ export default function useComment(news_id) {
 
     // to get all comments for the user on all posts argument : user id
     async function fetchCommentUser() {
-        const url = apiUrl + 'api/v1/dailypulse/get_comments/' + str(user.id);
+        const url = apiUrl + 'api/v1/dailypulse/get_comments/' + user.id;
         if (!tokens) {
             return;
         }
@@ -40,15 +41,17 @@ export default function useComment(news_id) {
 
     // to get all comments for new : news id
     async function fetchCommentNew(news_id) {
-        const url = apiUrl + 'api/v1/dailypulse/get_comments_news/' + str(news_id);
+        const url = apiUrl + `api/v1/dailypulse/get_comments_news/${news_id}`;
         if (!tokens) {
             return;
         }
 
         try {
+            // console.log(url)
             const response = await fetch(url, config());
 
             const responseJSON = await response.json();
+            console.log(responseJSON)
 
             return responseJSON;
 
@@ -76,7 +79,7 @@ export default function useComment(news_id) {
     async function deleteComment(id) {
 
         try {
-            const url = apiUrl + 'api/v1/dailypulse/delete_comment/' + str(id);
+            const url = apiUrl + 'api/v1/dailypulse/delete_comment/' + id;
             const options = config();
             options.method = "DELETE";
             await fetch(url, options);
@@ -90,7 +93,7 @@ export default function useComment(news_id) {
     async function updateComment(id, info) {
 
         try {
-            const url = apiUrl + 'api/v1/dailypulse/update_comment/' + str(id);
+            const url = apiUrl + 'api/v1/dailypulse/update_comment/' + id;
             const options = config();
             options.method = "PUT";
             options.body = JSON.stringify(info);
