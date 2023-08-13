@@ -15,6 +15,7 @@ import Loader from "@/components/Loader";
 import SportSection from "@/components/SportSection";
 import Business from "@/components/BusinessSection";
 import Entertainment from "@/components/Entertainment";
+import Post from "@/components/Post";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -39,16 +40,17 @@ export default function Home() {
 
         {category == "all" ? (
           <>
-            {/* <HeroSection />
-            <Newsection />
-            <Trendingsection />
-            <TechSection />
-            <Business />
-            <Entertainment />
-            <SportSection />
-            */}
+            {/* <HeroSection /> */}
+            {/* <Newsection /> */}
+            {/* <Trendingsection /> */}
+            {/* <TechSection /> */}
+            {/* <Business /> */}
+            {/* <Entertainment /> */}
+            {/* <SportSection /> */}
+            {/* <Post /> */}
+            {/* <br />
             <br />
-            <br />
+            
 
             <br />
             <br />
@@ -99,13 +101,13 @@ export default function Home() {
             <br />
             <br />
             <br />
-            <br />
+            <br /> */}
 
             <MostComments />
           </>
         ) : (
           // <CatgoryBase catgory={category} />
-          <br />
+          <br></br>
         )}
       </Parent>
     </>

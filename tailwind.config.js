@@ -17,6 +17,9 @@ module.exports = withMT({
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        serif: ["Georgia", "Times New Roman", "serif"],
+      },
       colors: {
         transparent: "transparent",
         current: "currentColor",
@@ -34,11 +37,15 @@ module.exports = withMT({
         120: "35rem",
         100: "40rem",
       },
+      padding: {
+        100: "402px",
+      },
       gap: {
         100: "40rem",
       },
       height: {
         100: "32rem",
+        99: "80vh",
       },
     },
   },
