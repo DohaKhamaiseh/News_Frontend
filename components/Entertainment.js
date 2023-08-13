@@ -4,7 +4,7 @@ import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Loader from "./Loader";
-import Card from "@/components/Card";
+import CardSmall from "./CardSmall";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
@@ -44,17 +44,18 @@ export default function Entertainment() {
         <Loader />
       ) : (
         <>
+
           <ul className="cards  ">
             {Cookies.get("lang") ? (
               <>
                 {dataAr.articles.slice(0, 4).map((item, index) => (
-                  <Card key={index} item={item} />
+                  <CardSmall key={index} item={item} />
                 ))}
               </>
             ) : (
               <>
                 {data.articles.slice(0, 4).map((item, index) => (
-                  <Card key={index} item={item} />
+                  <CardSmall key={index} item={item} />
                 ))}
               </>
             )}
