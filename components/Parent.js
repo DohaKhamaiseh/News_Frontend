@@ -2,10 +2,10 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
-export const Parent = ({ children }) => {
+export const Parent = ({ children, isHome }) => {
   return (
     <>
-      <Header />
+      <Header isHome={isHome} />
       {children}
       <Footer />
     </>
