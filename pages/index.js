@@ -40,6 +40,7 @@ export default function Home() {
 
         {category == "all" ? (
           <>
+
             <HeroSection />
             <Newsection />
             <Trendingsection />
@@ -48,6 +49,14 @@ export default function Home() {
             <Entertainment />
             <SportSection />
             {/* <br />
+
+            {/* <Newsection /> */}
+            {/* <Trendingsection /> */}
+            {/* <TechSection /> */}
+            {/* <HeroSection /> */}
+            <br />
+            <br />
+
             <br />
             <br />
             <br />
@@ -98,12 +107,12 @@ export default function Home() {
             <br />
             <br />
             <br />
-            <br /> */}
 
             <MostComments />
           </>
         ) : (
-          <CatgoryBase catgory={category} />
+          // <CatgoryBase catgory={category} />
+          <br />
         )}
       </Parent>
     </>
