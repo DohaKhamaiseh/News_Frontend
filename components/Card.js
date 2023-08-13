@@ -1,13 +1,27 @@
 import Link from "next/link";
 import Cookies from "js-cookie";
+import { useAuth } from "@/context/auth";
+import { useRouter } from "next/router";
 
 export default function Card({ item }) {
+  const { user } = useAuth();
+  const router = useRouter();
+
   function singleNew(item) {
+    if (!user) {
+      router.push("/signin");
+      return;
+    }
+
     Cookies.set("news", JSON.stringify(item));
+    if (item.id) {
+      Cookies.set("news_id", JSON.stringify(item.id));
+    }
+    router.push("singleNew");
   }
   return (
     <li className="cards_item dark:bg-bgDark pt-10 bg-bgLight ">
-      <Link href="/singleNew" onClick={() => singleNew(item)}>
+      <div onClick={() => singleNew(item)}>
         {/* <a href={item.url}> */}
         <div className="card_news">
           <div className="card_image">
@@ -28,7 +42,7 @@ export default function Card({ item }) {
           </div>
         </div>
         {/* </a> */}
-      </Link>
+      </div>
     </li>
   );
 }

@@ -71,13 +71,16 @@ export function useApi(category) {
     [`${backendURL}api/v1/dailypulse/list/${category}/`],
     fetchData
   );
+  const [loading, setLoading] = useState(true);
 
   async function fetchData() {
     try {
       const url = `${backendURL}api/v1/dailypulse/list/${category}/`;
       const response = await axios.get(url);
       const responseJSON = await response.data;
-
+      if (responseJSON) {
+        setLoading(false);
+      }
       return responseJSON;
     } catch (err) {
       handleError(err);
@@ -89,7 +92,7 @@ export function useApi(category) {
 
   return {
     data: data,
-    isLoading: isLoading,
+    loading: loading,
   };
 }
 
@@ -98,13 +101,15 @@ export function useApi2(category, language) {
     [`${backendURL}api/v1/dailypulse/list/${category}/`],
     fetchData
   );
-
+  const [loading, setLoading] = useState(true);
   async function fetchData() {
     try {
       const url = `${backendURL}api/v1/dailypulse/list/${category}/${language}`;
       const response = await axios.get(url);
       const responseJSON = await response.data;
-
+      if (responseJSON) {
+        setLoading(false);
+      }
       return responseJSON;
     } catch (err) {
       handleError(err);
@@ -116,7 +121,7 @@ export function useApi2(category, language) {
 
   return {
     dataAr: data,
-    loadingAr: isLoading,
+    loadingAr: loading,
   };
 }
 

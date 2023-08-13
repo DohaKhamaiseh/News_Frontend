@@ -1,17 +1,23 @@
 import React from "react";
 import { Carousel, Typography } from "@material-tailwind/react";
 import Loader from "./Loader";
+import { useEffect } from "react";
 export default function CarouselC({ data, loading }) {
+  useEffect(() => {}, [data]);
+
   return (
     <>
-      {loading ? (
+      {!data ? (
         <Loader />
       ) : (
         <Carousel className="rounded-xl  " dir="ltr">
           {data.articles.slice(0, 3).map((item) => (
             <div className="relative h-100 w-full">
               <img
-                src={item.urlToImage}
+                src={
+                  item.urlToImage ||
+                  "https://www.servicedriventransport.com/wp-content/uploads/2023/06/News.jpg"
+                }
                 alt="image 1"
                 className="object-cover h-full w-full"
               />

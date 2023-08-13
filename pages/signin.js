@@ -12,7 +12,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home","common"])),
+      ...(await serverSideTranslations(locale, ["home", "common"])),
     },
   };
 }
@@ -46,7 +46,7 @@ export default function signIn() {
     };
 
     setUserInfo(userObj);
-    console.log(userObj);
+    // console.log(userObj);
     try {
       await login(userObj.user_name, userObj.password);
     } catch (err) {
@@ -84,7 +84,7 @@ export default function signIn() {
                 {/* Col  */}
                 <div className="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
                   <h3 className="pt-4 text-2xl text-center">
-                  {t("common:youraccount")}
+                    {t("common:youraccount")}
                   </h3>
                   <form
                     className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
@@ -92,7 +92,7 @@ export default function signIn() {
                   >
                     <div className="mb-4">
                       <label className="block mb-2 text-sm font-bold text-gray-700">
-                      {t("common:username")}
+                        {t("common:username")}
                       </label>
                       <input
                         className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -110,7 +110,7 @@ export default function signIn() {
                     <div className="mb-4">
                       <div className="mb-4 md:mr-2 md:mb-0">
                         <label className="block mb-2 text-sm font-bold text-gray-700">
-                        {t("common:pass")}
+                          {t("common:pass")}
                         </label>
                         <input
                           className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -130,7 +130,7 @@ export default function signIn() {
                         className="w-full px-4 py-2 font-bold text-white custom-teal-bg active:bg-teal-600 rounded-full hover:bg-bgDark focus:outline-none focus:shadow-outline"
                         type="submit"
                       >
-                       {t("common:RegisterAccount")}
+                        {t("common:RegisterAccount")}
                       </button>
                     </div>
                     <hr className="mb-6 border-t" />
