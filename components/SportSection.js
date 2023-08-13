@@ -1,55 +1,55 @@
-import Card from "@/components/Card";
+import React from "react";
 import { useApi, useApi2 } from "../hooks/useApi";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { useTranslation } from "next-i18next";
-import Loader from "./Loader";
-import { useState, useEffect } from "react";
+
+import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-
-export default function Trendingsection() {
-  const { data } = useApi("trending");
-  const { dataAr } = useApi2("now", "ar");
-  const [loading, setLoading] = useState(true);
+import Loader from "./Loader";
+import Card from "@/components/Card";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+export default function SportSection() {
   const { t } = useTranslation();
-
+  const router = useRouter();
+  const { data } = useApi("sports");
+  const { dataAr } = useApi2("sport", "ar"); // en or ar from cookies
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    if (data) {
+    if (data || dataAr) {
       setLoading(false);
     }
   }, [data, dataAr]);
 
   return (
-    <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
-      {" "}
+    <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40 ">
       <hr className="mb-6 border-t border-gray-300 dark:border-gray-600" />{" "}
-      <h1 className="text-2xl dark:text-white text-black flex">
-        {" "}
+      <h1 className="text-2xl dark:text-white text-black flex  pt-10  ">
         <span className="w-4 bg-black mx-2 title_box"> </span>
-        {t("home:trending_cat") === "Trending" ? (
+        {t("home:sport_cat") === "Sports" ? (
           <>
-            {t("home:trending_cat")}
+            {t("home:sport_cat")}
             <span className="pt-1 pl-1">
               <FaAngleRight />{" "}
             </span>
           </>
         ) : (
           <>
-            {t("home:trending_cat")}
+            {t("home:sport_cat")}
             <span className="pt-1 pl-1">
               <FaAngleLeft />{" "}
             </span>
           </>
         )}
-        {/* Trending{" "}
-            <span className="pt-1 pl-1">
-              {" "}
-              <FaAngleRight />{" "}
-            </span>{" "} */}
       </h1>
       {!dataAr ? (
         <Loader />
       ) : (
         <>
+          {/* {t('home:tech_cat')}
+            <span className="pt-1 pl-1">
+              {" "}
+              <FaAngleRight />{" "}
+            </span>{" "} */}
           <ul className="cards  ">
             {Cookies.get("lang") ? (
               <>

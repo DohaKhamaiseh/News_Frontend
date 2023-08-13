@@ -4,8 +4,14 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Cookies from "js-cookie";
 import useComment from "hooks/useComment";
 import { useAuth } from "../context/auth";
+import useNews from "@/hooks/useNews";
+import Link from "next/link";
+
+import { Button, Typography } from "@material-tailwind/react";
 import Loader from "@/components/Loader";
-import Card from "@/components/Card";
+import CommentSection from "@/components/CommentSection";
+import Post from "@/components/Post";
+import Createcomment from "@/components/Createcomment";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -14,76 +20,59 @@ export async function getStaticProps({ locale }) {
     },
   };
 }
+
 export default function singleNew() {
   const [news, setNews] = useState({});
-  const { createComment, fetchCommentNew } = useComment(news.id)
+
+  const { createComment, fetchCommentNew } = useComment();
+  const { createNews } = useNews();
+
   const { user } = useAuth();
-  const [comment, setComment] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  async function handlecreate(commObj) {
+    // event.preventDefault();
+    if (!news.id) {
+      const newNews = createNews(news);
+
+      const obj = {
+        user: user.id,
+        news: newNews.id,
+        description: commObj.description,
+      };
+      createComment(obj);
+    } else {
+      const obj = {
+        user: user.id,
+        news: news.id,
+        description: commObj.description,
+      };
+      createComment(obj);
+    }
+  }
 
   useEffect(() => {
     if (Cookies.get("news")) {
       setNews(JSON.parse(Cookies.get("news")));
-      // console.log(JSON.parse(Cookies.get("news")));
-      // console.log(news.url_image);
+      // console.log(news.id);
     }
+
+    // const c = fetchCommentNew(news.id);
+    // setNewsComment(c);
   }, []);
-
-  async function handlecreate(event) {
-    event.preventDefault();
-    const obj = {
-      user_id: user?.id,
-      news_id: news.id,
-      description: event.target.comm.value,
-    };
-    if (news.id) {
-      createComment(obj);
-      handlefetch();
-    }
-  }
-
-  async function handlefetch() {
-    const fetchedComment = await fetchCommentNew(news.id);
-    setComment(fetchedComment);
-  }
-
 
   return (
     <Parent>
-      <div className="">
-        <img src={news.url_image} />
-        <h1>{news.id}</h1>
+      <div className="flex flex-col gap-14 dark:bg-bgDark bg-bgLight 2xl:px-40 pt-10">
+        <Post data={news} />
 
-        <div>
-          {/* {comment} */}
-          {/* {comment.map((item) => (
-            <div key={item.id}>
-              {item.title}
-            </div>
-          ))} */}
+        <div className="w-[32rem] pl-100 ">
+          <CommentSection id={news.id} />
         </div>
-
+        <div className="pl-100">
+          <Createcomment handlecreate={handlecreate}/>
+        </div>
       </div>
-      {user ? (<form onSubmit={handlecreate}>
-        <div className="mb-4 md:mr-2 md:mb-0">
-          <label className="block mb-2 text-sm font-bold text-gray-700">
-            Comments
-          </label>
-          <input
-            // className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-            // id="text"
-            type="text"
-            name="comm"
-            required
-          />
-          <button>
-            Create
-          </button>
-        </div>
-      </form>
-      ) : ("")}
-
-
-
     </Parent>
   );
 }

@@ -7,10 +7,12 @@ import { AuthProvider } from "../context/auth";
 import { Suspense } from "react";
 import Loader from "@/components/Loader";
 
+const loading = <Loader />;
+
 function App({ Component, pageProps }) {
   return (
     <AuthProvider>
-      <Suspense fallback={Loader}>
+      <Suspense fallback={loading}>
         <Component {...pageProps} />
       </Suspense>
     </AuthProvider>

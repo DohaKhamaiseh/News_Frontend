@@ -12,6 +12,11 @@ import NavBar from "@/components/NavBar";
 import CatgoryBase from "@/components/CatgoryBase";
 import HeroSection from "@/components/HeroSection";
 import Loader from "@/components/Loader";
+import SportSection from "@/components/SportSection";
+import Business from "@/components/BusinessSection";
+import Entertainment from "@/components/Entertainment";
+import Combined from "@/components/Combined";
+import Post from "@/components/Post";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -24,6 +29,7 @@ export async function getStaticProps({ locale }) {
 export default function Home() {
   const { t } = useTranslation();
   const [category, setCategory] = useState("all");
+
   useEffect(() => {}, [category]);
 
   return (
@@ -31,19 +37,31 @@ export default function Home() {
       <Head>
         <title>Home</title>
       </Head>
-      <Parent>
+      <Parent isHome={true}>
         <NavBar setCategory={setCategory} catgory={category} />
 
         {category == "all" ? (
           <>
-
+            {/* <HeroSection /> */}
             {/* <Newsection /> */}
+
             {/* <Trendingsection /> */}
             {/* <TechSection /> */}
-            {/* <HeroSection /> */}
+            {/* <Combined /> */}
+
+            {/* <Trendingsection />
+            <TechSection />
+            <Combined /> */}
+
+            {/* <Business /> */}
+            {/* <Entertainment /> */}
+            {/* <SportSection /> */}
+            {/* <Post /> */}
+            {/* <br />
             <br />
-            <br />
-            <br />
+            
+
+
             <br />
             <br />
             <br />
@@ -99,7 +117,7 @@ export default function Home() {
           </>
         ) : (
           // <CatgoryBase catgory={category} />
-          <b />
+          <br></br>
         )}
       </Parent>
     </>
