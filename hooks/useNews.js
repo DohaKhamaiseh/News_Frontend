@@ -32,20 +32,6 @@ export default function useNews() {
     }
   }
 
-  async function fetchAllNews() {
-    try {
-      // console.log(apiUrl);
-      const url = `${apiUrl}Get_all_News/`;
-      const response = await fetch(url);
-
-      const responseJSON = await response.json();
-
-      return responseJSON;
-    } catch (err) {
-      handleError(err);
-    }
-  }
-
   async function createNews(info) {
     try {
       const url = `${apiUrl}Create_News/`;
@@ -91,6 +77,33 @@ export default function useNews() {
     fetchNews,
     createNews,
     deleteNews,
-    fetchAllNews,
+  };
+}
+
+export function useAllNews() {
+  const { tokens, logout, user } = useAuth();
+  const user_id = user?.id;
+  const { data, isLoading, error, mutate } = useSWR(
+    [`${apiUrl}Get_all_News/${user_id}`, tokens],
+    fetchAllNews
+  );
+
+  async function fetchAllNews() {
+    try {
+      // console.log(apiUrl);
+      const url = `${apiUrl}Get_all_News/`;
+      const response = await fetch(url);
+
+      const responseJSON = await response.json();
+
+      return responseJSON;
+    } catch (err) {
+      handleError(err);
+    }
+  }
+  return {
+    allNews: data,
+    error,
+    isLoading: isLoading,
   };
 }

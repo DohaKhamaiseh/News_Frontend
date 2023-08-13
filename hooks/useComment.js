@@ -38,8 +38,10 @@ export default function useComment() {
   }
 
   // to get all comments for new : news id
-  async function fetchCommentNew(news_id) {
-    const url = apiUrl + `api/v1/dailypulse/get_comments_news/${news_id}/`;
+  async function fetchCommentNew(title) {
+    const encodedTitle = encodeURI(title);
+    console.log(encodedTitle);
+    const url = apiUrl + `api/v1/dailypulse/get_comments_news/${encodedTitle}/`;
     if (!tokens) {
       return;
     }
@@ -49,7 +51,7 @@ export default function useComment() {
       const response = await fetch(url, config());
 
       const responseJSON = await response.json();
-      // console.log(responseJSON);
+      console.log(responseJSON);
 
       return responseJSON;
     } catch (err) {
