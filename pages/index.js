@@ -16,7 +16,6 @@ import SportSection from "@/components/SportSection";
 import Business from "@/components/BusinessSection";
 import Entertainment from "@/components/Entertainment";
 
-
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -40,20 +39,14 @@ export default function Home() {
 
         {category == "all" ? (
           <>
-
-            <HeroSection />
+            {/* <HeroSection />
             <Newsection />
             <Trendingsection />
             <TechSection />
             <Business />
             <Entertainment />
             <SportSection />
-            {/* <br />
-
-            {/* <Newsection /> */}
-            {/* <Trendingsection /> */}
-            {/* <TechSection /> */}
-            {/* <HeroSection /> */}
+            */}
             <br />
             <br />
 
