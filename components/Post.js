@@ -3,7 +3,7 @@ import { Chip } from "@material-tailwind/react";
 
 const Post = ({ data }) => {
   return (
-    <div className="font-serif bg-bgLight dark:bg-bgDark">
+    <div className="font-serif bg-bgLight dark:bg-bgDark dark:text-fontDark">
       <div className=" relative h-99 mx-52 bg-bgLight ">
         <div
           className="absolute inset-0 bg-cover bg-center  "

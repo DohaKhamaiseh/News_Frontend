@@ -18,7 +18,7 @@ export default function Newsection() {
   }, [data, dataAr]);
 
   return (
-    <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
+    <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40 dark:text-fontDark">
       {" "}
       <hr className="mb-6 border-t border-gray-300 dark:border-gray-600" />{" "}
       <h1 className="text-2xl dark:text-white text-black flex">

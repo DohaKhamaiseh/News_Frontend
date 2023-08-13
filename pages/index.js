@@ -44,9 +44,15 @@ export default function Home() {
           <>
             {/* <HeroSection /> */}
             {/* <Newsection /> */}
+
+            {/* <Trendingsection /> */}
+            {/* <TechSection /> */}
+            {/* <Combined /> */}
+
             {/* <Trendingsection />
             <TechSection />
             <Combined /> */}
+
             {/* <Business /> */}
             {/* <Entertainment /> */}
             {/* <SportSection /> */}
