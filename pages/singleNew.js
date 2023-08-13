@@ -12,6 +12,7 @@ import Loader from "@/components/Loader";
 import CommentSection from "@/components/CommentSection";
 import Post from "@/components/Post";
 import Createcomment from "@/components/Createcomment";
+import { useAllNews } from "@/hooks/useNews";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -22,44 +23,50 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function singleNew() {
-  const [news, setNews] = useState({});
-
+  // const [news, setNews] = useState({});
   const { createComment, fetchCommentNew } = useComment();
+  const { allNews } = useAllNews();
   const { createNews } = useNews();
-
   const { user } = useAuth();
   const [loading, setLoading] = useState(true);
+  let news;
+  if (Cookies.get("news")) {
+    news = JSON.parse(Cookies.get("news"));
+    // console.log(news.id);
+  }
+  const isSaved = allNews?.filter((i) => i.title === news.title);
 
   async function handlecreate(commObj) {
     // event.preventDefault();
-    if (!news.id) {
+    if (isSaved.length === 0) {
       const newNews = createNews(news);
 
       const obj = {
         user: user.id,
         news: newNews.id,
+        newsTitle: encodeURI(news.title),
+        userName: user.username,
         description: commObj.description,
       };
       createComment(obj);
     } else {
       const obj = {
         user: user.id,
-        news: news.id,
+        news: isSaved[0].id,
+        newsTitle: encodeURI(news.title),
+        userName: user.username,
         description: commObj.description,
       };
-      createComment(obj);
+
+      const w = await createComment(obj);
+      console.log(w);
     }
   }
 
-  useEffect(() => {
-    if (Cookies.get("news")) {
-      setNews(JSON.parse(Cookies.get("news")));
-      // console.log(news.id);
-    }
-
-    // const c = fetchCommentNew(news.id);
-    // setNewsComment(c);
-  }, []);
+  // useEffect(() => {
+  //   // const c = fetchCommentNew(news.id);
+  //   // setNewsComment(c);
+  // }, []);
 
   return (
     <Parent>
@@ -67,11 +74,11 @@ export default function singleNew() {
         <Post data={news} />
 
         <div className="w-[32rem] pl-100 ">
-          <CommentSection id={news.id} />
+          <CommentSection title={news.title} isSaved={isSaved} news={news} />
         </div>
-        <div className="pl-100">
-          <Createcomment handlecreate={handlecreate}/>
-        </div>
+        {/* <div className="pl-100">
+          <Createcomment handlecreate={handlecreate} />
+        </div> */}
       </div>
     </Parent>
   );

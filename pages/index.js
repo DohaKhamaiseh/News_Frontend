@@ -59,8 +59,6 @@ export default function Home() {
             {/* <Post /> */}
             {/* <br />
             <br />
-            
-
 
             <br />
             <br />
