@@ -10,29 +10,29 @@ import { useRouter } from "next/router";
 export default function Business() {
   const router = useRouter();
   const { data } = useApi("business");
-  const { dataAr } = useApi2("business", "ar"); // en or ar from cookies
+  const { dataAr } = useApi2("Business", "ar"); // en or ar from cookies
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (data || dataAr) {
       setLoading(false);
     }
-  }, [data]);
+  }, [data, dataAr]);
 
   return (
     <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40 ">
-      {loading ? (
+      <hr className="mb-6 border-t border-gray-300 dark:border-gray-600" />{" "}
+      <h1 className="text-2xl dark:text-white text-black flex  pt-10  ">
+        <span className="w-4 bg-black mx-2 title_box"> </span>
+        Business
+        <span className="pt-1 pl-1">
+          {" "}
+          <FaAngleRight />{" "}
+        </span>{" "}
+      </h1>
+      {!dataAr ? (
         <Loader />
       ) : (
         <>
-          <hr className="mb-6 border-t border-gray-300 dark:border-gray-600" />{" "}
-          <h1 className="text-2xl dark:text-white text-black flex  pt-10  ">
-            <span className="w-4 bg-black mx-2 title_box"> </span>
-            Business
-            <span className="pt-1 pl-1">
-              {" "}
-              <FaAngleRight />{" "}
-            </span>{" "}
-          </h1>
           <ul className="cards  ">
             {Cookies.get("lang") ? (
               <>

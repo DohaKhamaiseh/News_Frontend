@@ -8,19 +8,19 @@ import Cookies from "js-cookie";
 import CarouselC from "./CarouselC";
 import Loader from "./Loader";
 function HeroSection() {
-  const { data } = useApi("sports");
-  const { dataAr } = useApi2("sports", "ar");
+  const { data } = useApi("news");
+  const { dataAr, loadingAr } = useApi2("new", "ar");
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    if (data || dataAr) {
+    if (data && dataAr) {
       setLoading(false);
     }
-  }, [data]);
+  }, [data, dataAr]);
 
   return (
     <>
-      {loading ? (
+      {!dataAr ? (
         <Loader />
       ) : (
         <div className="flex gap-10 py-10 bg-bgLight dark:bg-bgDark  2xl:px-40">
@@ -35,7 +35,7 @@ function HeroSection() {
             </>
           ) : (
             <>
-              <CarouselC data={data} loading={loading} />
+              <CarouselC data={data} loading={loadingAr} />
               <div className="flex flex-col">
                 {data.articles.slice(5, 8).map((item) => (
                   <CardSmall item={item} />
