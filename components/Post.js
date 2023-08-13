@@ -29,7 +29,7 @@ const Post = ({ data }) => {
           <br></br>
           <br></br>
           <Chip
-            value={data.source}
+            value={data.source?.name || data.source}
             className="dark:bg-bgLight text-center dark:text-gray-900 w-fit"
           />
           <br />

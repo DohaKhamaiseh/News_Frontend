@@ -9,7 +9,7 @@ import { FaTemperatureHalf } from "react-icons/fa6";
 import { useTranslation } from "next-i18next";
 import Temp from "./Temp";
 
-export default function Header() {
+export default function Header({ isHome }) {
   const { t } = useTranslation();
   const { user, logout } = useAuth();
   const location = user?.location;
@@ -29,6 +29,11 @@ export default function Header() {
       Cookies.set("dark", "dark");
     }
   };
+  function handleId() {
+    if (Cookies.get("news_id")) {
+      Cookies.remove("news_id");
+    }
+  }
   useEffect(() => {
     if (Cookies.get("dark")) {
       document.documentElement.classList.add("dark");
@@ -146,9 +151,13 @@ export default function Header() {
               </Link>
             </>
           )}
-          <Link href="/">
-            <FaHome size={30} color="#02a8ae" />
-          </Link>
+          {isHome ? (
+            <></>
+          ) : (
+            <Link href="/" onClick={handleId}>
+              <FaHome size={30} color="#02a8ae" />
+            </Link>
+          )}
         </div>
         {/* </div> */}
       </header>
