@@ -12,6 +12,10 @@ import NavBar from "@/components/NavBar";
 import CatgoryBase from "@/components/CatgoryBase";
 import HeroSection from "@/components/HeroSection";
 import Loader from "@/components/Loader";
+import SportSection from "@/components/SportSection";
+import Business from "@/components/BusinessSection";
+import Entertainment from "@/components/Entertainment";
+
 
 export async function getStaticProps({ locale }) {
   return {
@@ -36,12 +40,23 @@ export default function Home() {
 
         {category == "all" ? (
           <>
+
+            <HeroSection />
+            <Newsection />
+            <Trendingsection />
+            <TechSection />
+            <Business />
+            <Entertainment />
+            <SportSection />
+            {/* <br />
+
             {/* <Newsection /> */}
             {/* <Trendingsection /> */}
             {/* <TechSection /> */}
             {/* <HeroSection /> */}
             <br />
             <br />
+
             <br />
             <br />
             <br />
