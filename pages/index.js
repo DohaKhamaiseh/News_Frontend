@@ -18,7 +18,6 @@ import Entertainment from "@/components/Entertainment";
 import Combined from "@/components/Combined";
 import Post from "@/components/Post";
 
-
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -30,6 +29,7 @@ export async function getStaticProps({ locale }) {
 export default function Home() {
   const { t } = useTranslation();
   const [category, setCategory] = useState("all");
+
   useEffect(() => {}, [category]);
 
   return (
@@ -37,24 +37,16 @@ export default function Home() {
       <Head>
         <title>Home</title>
       </Head>
-      <Parent>
+      <Parent isHome={true}>
         <NavBar setCategory={setCategory} catgory={category} />
 
         {category == "all" ? (
           <>
-
-            
-            
-           
-            
-            <br />
-            <br />
-
             {/* <HeroSection /> */}
             {/* <Newsection /> */}
-            {/* <Trendingsection /> */}
-            {/* <TechSection /> */}
-            <Combined />
+            {/* <Trendingsection />
+            <TechSection />
+            <Combined /> */}
             {/* <Business /> */}
             {/* <Entertainment /> */}
             {/* <SportSection /> */}

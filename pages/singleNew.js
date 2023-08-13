@@ -53,7 +53,7 @@ export default function singleNew() {
   useEffect(() => {
     if (Cookies.get("news")) {
       setNews(JSON.parse(Cookies.get("news")));
-      console.log(news.id);
+      // console.log(news.id);
     }
 
     // const c = fetchCommentNew(news.id);
