@@ -54,7 +54,7 @@ export default function Home() {
             {/* <Newsection /> */}
             {/* <Trendingsection /> */}
             {/* <TechSection /> */}
-            <Combined />
+            {/* <Combined /> */}
             {/* <Business /> */}
             {/* <Entertainment /> */}
             {/* <SportSection /> */}

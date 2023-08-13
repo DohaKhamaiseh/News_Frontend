@@ -38,7 +38,7 @@ export default function CommentSection({ id }) {
           {newsComment.map((comment) => (
             <TimelineItem key={comment.id}>
               <TimelineConnector />
-              <TimelineHeader className="h-3">
+              <TimelineHeader className="h-3 ">
                 <TimelineIcon />
                 <Typography
                   variant="h6"
@@ -48,7 +48,7 @@ export default function CommentSection({ id }) {
                   User Name
                 </Typography>
               </TimelineHeader>
-              <TimelineBody className="pb-8">
+              <TimelineBody className="pb-8 ">
                 <Typography
                   variant="small"
                   color="gary"
