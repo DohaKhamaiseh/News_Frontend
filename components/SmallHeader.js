@@ -49,11 +49,11 @@ export default function SmallHeader() {
   const m = date.datetime.slice(0, 10).split("-")[1];
   const d = date.datetime.slice(0, 10).split("-")[2];
   return (
-    <header className="p-2 flex justify-between bg-gray-600 ">
+    <header className="p-2 flex justify-between bg-gray-800 ">
       <div className="px-16">
         <Dropdown />
       </div>
-      <div className="flex gap-1 px-10">
+      <div className="flex gap-1 px-10 text-white">
         <p>{days[date.day_of_week]}</p>
         <p>- {d}</p>
         <p>- {monthes[Number(m)]}</p>

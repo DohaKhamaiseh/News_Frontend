@@ -64,9 +64,9 @@ export default function Dropdown() {
         <Button
           variant="text"
           color="blue-gray"
-          className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto text-signup "
+          className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto text-white "
         >
-          <FaGlobeAsia size={25} className="text-signup" />
+          <FaGlobeAsia size={25} className="text-white" />
           <span className="px-2 font-bold" style={customSize}>
             {t("home:language")}
           </span>
