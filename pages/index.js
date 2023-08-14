@@ -57,10 +57,7 @@ export default function Home() {
             {/* <Entertainment /> */}
             {/* <SportSection /> */}
             {/* <Post /> */}
-             {/* <br />
             <br />
-             */}
-
 
             <br />
             <br />
