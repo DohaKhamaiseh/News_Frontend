@@ -28,12 +28,11 @@ export default function NavProfile({ setCategory, catgory }) {
   return (
     <div
       id="navbar"
-      className="nav flex justify-center z-50 bg-bgLight dark:bg-bgDark dark:text-signup  pb-2 outline  outline-1 text-gray-900 outline-cyan-600 dark:outline-cyan-100"
+      className="nav flex justify-center z-50 bg-bgLight dark:bg-bgDark  pb-2 outline  outline-1 text-gray-900 dark:text-fontDark outline-cyan-600 dark:outline-cyan-100"
     >
       <div className="nav-links flex justify-center">
         <Link
           href="/Profile/MyNews"
-          onClick={() => setCategory("all")}
           style={
             catgory == "all" ? { backgroundColor: "rgba(0, 0, 0, 0.3)" } : {}
           }
@@ -42,16 +41,16 @@ export default function NavProfile({ setCategory, catgory }) {
         </Link>
         <Link
           href="/Profile/ReadingList"
-          onClick={() => setCategory("Reading_List")}
           style={
-            catgory == "Reading_List" ? { backgroundColor: "rgba(0, 0, 0, 0.3)" } : {}
+            catgory == "Reading_List"
+              ? { backgroundColor: "rgba(0, 0, 0, 0.3)" }
+              : {}
           }
         >
           Reading List
         </Link>
         <Link
           href="/Profile/ProfileInfo"
-          onClick={() => setCategory("Profile_Info")}
           style={
             catgory == "Profile_Info"
               ? { backgroundColor: "rgba(0, 0, 0, 0.3)" }

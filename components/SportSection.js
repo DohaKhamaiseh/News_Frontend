@@ -45,11 +45,6 @@ export default function SportSection() {
         <Loader />
       ) : (
         <>
-          {/* {t('home:tech_cat')}
-            <span className="pt-1 pl-1">
-              {" "}
-              <FaAngleRight />{" "}
-            </span>{" "} */}
           <ul className="cards  ">
             {Cookies.get("lang") ? (
               <>

@@ -53,12 +53,12 @@ export default function Footer() {
 
         {/* Middle Section */}
         <div className="text-white text-center">
-          <Link href="./aboutus">
+          <Link href="/aboutus">
             <p className="mb-2 text-gray-900 dark:text-fontDark font-bold">
               {t("common:AboutUs")}
             </p>
           </Link>
-          <Link href="./ourteam">
+          <Link href="/ourteam">
             <p className="text-gray-900 dark:text-fontDark font-bold">
               {t("common:OurTeam")}
             </p>

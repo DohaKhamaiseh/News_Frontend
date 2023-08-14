@@ -42,79 +42,19 @@ export default function Home() {
 
         {category == "all" ? (
           <>
-            {/* <HeroSection /> */}
-            {/* <Newsection /> */}
+            {/* <HeroSection />
+            <Newsection />
 
-            {/* <Trendingsection /> */}
-            {/* <TechSection /> */}
-            {/* <Combined /> */}
-
-            {/* <Trendingsection />
+            <Trendingsection />
             <TechSection />
             <Combined /> */}
 
-            {/* <Business /> */}
-            {/* <Entertainment /> */}
             {/* <SportSection /> */}
-            {/* <Post /> */}
-            <br />
-
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br /> 
 
             <MostComments />
           </>
         ) : (
-          // <CatgoryBase catgory={category} />
-          <br></br>
+          <CatgoryBase catgory={category} />
         )}
       </Parent>
     </>

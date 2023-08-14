@@ -18,16 +18,25 @@ import { FaTrash } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
 import { UpdateModel } from "./UpdateModel";
 import DeleteModel from "./DeleteModel";
+import useNews from "@/hooks/useNews";
 
 export default function CommentSection({ title, isSaved, news }) {
   const [newsComment, setNewsComment] = useState(undefined);
   const { fetchCommentNew, createComment } = useComment();
+  const { createNews } = useNews();
   const { user } = useAuth();
+  const [newNews, setnewNews] = useState({});
 
   async function handlecreate(commObj) {
     // event.preventDefault();
     if (isSaved.length === 0) {
-      const newNews = createNews(news);
+      const apinew = {
+        ...news,
+        source: news.source.name,
+        url_image: news.urlToImage,
+      };
+      const newr = await createNews(apinew);
+      setnewNews(newr);
 
       const obj = {
         user: user.id,
@@ -36,7 +45,8 @@ export default function CommentSection({ title, isSaved, news }) {
         userName: user.username,
         description: commObj.description,
       };
-      createComment(obj);
+      const w = await createComment(obj);
+      setNewsComment([w]);
     } else {
       const obj = {
         user: user.id,
@@ -56,10 +66,10 @@ export default function CommentSection({ title, isSaved, news }) {
       console.log("title is coming ", title);
       const x = await fetchCommentNew(title);
       setNewsComment(x);
-      console.log(x);
+      // console.log(x);
     }
     get_comments();
-  }, []);
+  }, [newNews]);
 
   return (
     <>
