@@ -8,8 +8,10 @@ import Cookies from "js-cookie";
 import { FaTemperatureHalf } from "react-icons/fa6";
 import { useTranslation } from "next-i18next";
 import Temp from "./Temp";
+import { useRouter } from "next/router";
 
 export default function Header({ isHome }) {
+  const router = useRouter();
   const { t } = useTranslation();
   const { user, logout } = useAuth();
   const location = user?.location;
@@ -127,7 +129,10 @@ export default function Header({ isHome }) {
 
               <a
                 className="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 custom-teal-bg rounded shadow outline-none active:bg-teal-600 hover:shadow-md focus:outline-none ease"
-                onClick={() => logout()}
+                onClick={() => {
+                  logout();
+                  router.push("/");
+                }}
               >
                 {" "}
                 {t("common:Logout")}{" "}
