@@ -40,7 +40,7 @@ export default function Card({ item }) {
               {item.title}
             </p>
             <div>
-              <Pop item={item} />
+              <Pop item={item} isReadingList={true}/>
             </div>
             {/* <a href ={item.url}> <button className="btn card_btn dark:text-white text-black border-black dark:border-white hover:bg-slate-600" >Read More</button> </a> */}
           </div>
