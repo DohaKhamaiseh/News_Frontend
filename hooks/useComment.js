@@ -15,7 +15,6 @@ export default function useComment(new_id) {
   console.log(user.id);
   const url = apiUrl + "api/v1/dailypulse/get_comments/";
 
-
   const { data, error, isLoading, mutate } = useSWR(
     [`${url}${user.id}${new_id}`, tokens],
     fetchCommentUser
@@ -23,17 +22,25 @@ export default function useComment(new_id) {
 
   // to get all comments for the user on all posts argument : user id
   async function fetchCommentUser() {
-  
     const url = apiUrl + `api/v1/dailypulse/get_comments/${user.id}/${new_id}`;
     if (!tokens) {
       return;
     }
+    try {
+      const response = await fetch(url, config());
+
+      const responseJSON = await response.json();
+
+      return responseJSON;
+    } catch (err) {
+      handleError(err);
+    }
+  }
 
   // const { data, error, isLoading, mutate } = useSWR(
   //   [`${url}${user.id}`, tokens],
   //   fetchCommentUser
   // );
-
 
   // // to get all comments for the user on all posts argument : user id
   // async function fetchCommentUser() {
