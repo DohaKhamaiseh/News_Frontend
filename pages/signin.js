@@ -8,6 +8,7 @@ import { Parent } from "@/components/Parent";
 
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Cookies from "js-cookie";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -19,7 +20,7 @@ export async function getStaticProps({ locale }) {
 
 export default function signIn() {
   const { t } = useTranslation();
-  const { login, user } = useAuth();
+  const { login, user, tokens } = useAuth();
   const router = useRouter();
 
   const [userInfo, setUserInfo] = useState({
@@ -48,7 +49,8 @@ export default function signIn() {
     setUserInfo(userObj);
     // console.log(userObj);
     try {
-      await login(userObj.user_name, userObj.password);
+      const x = await login(userObj.user_name, userObj.password);
+      Cookies.set("token", JSON.stringify(x));
     } catch (err) {
       setError({
         user_name: "Invalid username",
