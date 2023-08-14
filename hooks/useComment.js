@@ -9,16 +9,31 @@ import useSWR from "swr";
 export const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 import { useAuth } from "../context/auth";
 
-export default function useComment() {
+export default function useComment(new_id) {
   const { tokens, logout, user } = useAuth();
 
-  // console.log(user.id);
+  console.log(user.id);
   const url = apiUrl + "api/v1/dailypulse/get_comments/";
+
+
+  const { data, error, isLoading, mutate } = useSWR(
+    [`${url}${user.id}${new_id}`, tokens],
+    fetchCommentUser
+  );
+
+  // to get all comments for the user on all posts argument : user id
+  async function fetchCommentUser() {
+  
+    const url = apiUrl + `api/v1/dailypulse/get_comments/${user.id}/${new_id}`;
+    if (!tokens) {
+      return;
+    }
 
   // const { data, error, isLoading, mutate } = useSWR(
   //   [`${url}${user.id}`, tokens],
   //   fetchCommentUser
   // );
+
 
   // // to get all comments for the user on all posts argument : user id
   // async function fetchCommentUser() {
@@ -126,9 +141,9 @@ export default function useComment() {
   }
 
   return {
-    // resources: data,
-    // error,
-    // loading: isLoading,
+    usercomment: data,
+    error,
+    loading: isLoading,
     createComment,
     deleteComment,
     updateComment,

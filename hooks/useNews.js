@@ -25,6 +25,7 @@ export default function useNews() {
       const response = await fetch(url, config());
 
       const responseJSON = await response.json();
+      // console.log(responseJSON)
 
       return responseJSON;
     } catch (err) {
