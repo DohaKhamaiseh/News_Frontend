@@ -15,6 +15,7 @@ export default function useComment(new_id) {
   console.log(user.id);
   const url = apiUrl + "api/v1/dailypulse/get_comments/";
 
+
   const { data, error, isLoading, mutate } = useSWR(
     [`${url}${user.id}${new_id}`, tokens],
     fetchCommentUser
@@ -28,16 +29,29 @@ export default function useComment(new_id) {
       return;
     }
 
-    try {
-      const response = await fetch(url, config());
+  // const { data, error, isLoading, mutate } = useSWR(
+  //   [`${url}${user.id}`, tokens],
+  //   fetchCommentUser
+  // );
 
-      const responseJSON = await response.json();
 
-      return responseJSON;
-    } catch (err) {
-      handleError(err);
-    }
-  }
+  // // to get all comments for the user on all posts argument : user id
+  // async function fetchCommentUser() {
+  //   const url = apiUrl + "api/v1/dailypulse/get_comments/" + user.id ;
+  //   if (!tokens) {
+  //     return;
+  //   }
+
+  //   try {
+  //     const response = await fetch(url, config());
+
+  //     const responseJSON = await response.json();
+
+  //     return responseJSON;
+  //   } catch (err) {
+  //     handleError(err);
+  //   }
+  // }
 
   // to get all comments for new : news id
   async function fetchCommentNew(title) {
@@ -70,7 +84,7 @@ export default function useComment(new_id) {
       (options.method = "POST"), (options.body = JSON.stringify(info));
       const response = await fetch(url, options);
       const responseJSON = await response.json();
-      mutate(); // mutate causes complete collection to be refetched
+      // mutate(); // mutate causes complete collection to be refetched
       return responseJSON;
     } catch (err) {
       handleError(err);
@@ -84,7 +98,7 @@ export default function useComment(new_id) {
       const options = config();
       options.method = "DELETE";
       const response = await fetch(url, options);
-      mutate(); // mutate causes complete collection to be refetched
+      // mutate(); // mutate causes complete collection to be refetched
       const res = await response.json();
       return res;
     } catch (err) {
@@ -100,7 +114,7 @@ export default function useComment(new_id) {
       options.method = "PUT";
       options.body = JSON.stringify(info);
       const response = await fetch(url, options);
-      mutate(); // mutate causes complete collection to be refetched
+      // mutate(); // mutate causes complete collection to be refetched
       const res = await response.json();
       return res;
     } catch (err) {

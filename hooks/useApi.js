@@ -98,7 +98,7 @@ export function useApi(category) {
 
 export function useApi2(category, language) {
   const { data, isLoading } = useSWR(
-    [`${backendURL}api/v1/dailypulse/list/${category}/`],
+    [`${backendURL}api/v1/dailypulse/list/${category}/${language}`],
     fetchData
   );
   const [loading, setLoading] = useState(true);

@@ -4,7 +4,7 @@ import { useAuth } from "@/context/auth";
 import { useRouter } from "next/router";
 import Pop from "./Pop";
 
-export default function Card({ item }) {
+export default function Card({ item, isReadingList }) {
   const { user } = useAuth();
   const router = useRouter();
 
@@ -40,7 +40,7 @@ export default function Card({ item }) {
               {item.title}
             </p>
             <div>
-              <Pop item={item} />
+              <Pop item={item} isReadingList={isReadingList} />
             </div>
             {/* <a href ={item.url}> <button className="btn card_btn dark:text-white text-black border-black dark:border-white hover:bg-slate-600" >Read More</button> </a> */}
           </div>
