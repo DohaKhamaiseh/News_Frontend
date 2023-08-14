@@ -11,11 +11,12 @@ import { useAuth } from "../context/auth";
 
 export default function useComment() {
   const { tokens, logout, user } = useAuth();
+
   // console.log(user.id);
-  const url = apiUrl + "api/v1/dailypulse/get_comments/" + user.id;
+  const url = apiUrl + "api/v1/dailypulse/get_comments/";
 
   const { data, error, isLoading, mutate } = useSWR(
-    [url, tokens],
+    [`${url}${user.id}`, tokens],
     fetchCommentUser
   );
 
@@ -40,7 +41,7 @@ export default function useComment() {
   // to get all comments for new : news id
   async function fetchCommentNew(title) {
     const encodedTitle = encodeURI(title);
-    console.log(encodedTitle);
+    // console.log(encodedTitle);
     const url = apiUrl + `api/v1/dailypulse/get_comments_news/${encodedTitle}/`;
     if (!tokens) {
       return;
@@ -81,8 +82,10 @@ export default function useComment() {
       const url = apiUrl + "api/v1/dailypulse/delete_comment/" + id;
       const options = config();
       options.method = "DELETE";
-      await fetch(url, options);
+      const response = await fetch(url, options);
       mutate(); // mutate causes complete collection to be refetched
+      const res = await response.json();
+      return res;
     } catch (err) {
       handleError(err);
     }
@@ -95,8 +98,10 @@ export default function useComment() {
       const options = config();
       options.method = "PUT";
       options.body = JSON.stringify(info);
-      await fetch(url, options);
+      const response = await fetch(url, options);
       mutate(); // mutate causes complete collection to be refetched
+      const res = await response.json();
+      return res;
     } catch (err) {
       handleError(err);
     }
@@ -121,9 +126,9 @@ export default function useComment() {
   }
 
   return {
-    resources: data,
-    error,
-    loading: isLoading,
+    // resources: data,
+    // error,
+    // loading: isLoading,
     createComment,
     deleteComment,
     updateComment,

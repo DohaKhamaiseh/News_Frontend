@@ -1,5 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
+import Cookies from "js-cookie";
 const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 const tokenUrl = baseUrl + "api/token/";
 
@@ -21,6 +22,22 @@ export function AuthProvider(props) {
     logout,
     signup,
   });
+  useEffect(() => {
+    if (Cookies.get("token")) {
+      const token = JSON.parse(Cookies.get("token"));
+      const decodedAccess = jwt.decode(token.access);
+      const newState = {
+        tokens: token,
+        user: {
+          username: decodedAccess.username,
+          email: decodedAccess.email,
+          id: decodedAccess.user_id,
+          location: decodedAccess.location,
+        },
+      };
+      setState((prevState) => ({ ...prevState, ...newState }));
+    }
+  }, []);
 
   async function login(username, password) {
     // const response = await axios.post(tokenUrl, { username, password });
@@ -49,6 +66,7 @@ export function AuthProvider(props) {
     // console.log(decodedAccess);
 
     setState((prevState) => ({ ...prevState, ...newState }));
+    return data;
   }
 
   function logout() {
@@ -57,6 +75,7 @@ export function AuthProvider(props) {
       user: null,
     };
     setState((prevState) => ({ ...prevState, ...newState }));
+    Cookies.remove("token");
   }
 
   async function signup(info) {

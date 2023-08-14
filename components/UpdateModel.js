@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import {
   Button,
   Dialog,
@@ -9,11 +10,20 @@ import {
   Textarea,
 } from "@material-tailwind/react";
 import { AiFillEdit } from "react-icons/ai";
+import useComment from "@/hooks/useComment";
 
-export function UpdateModel({ styles, comment }) {
-  const [open, setOpen] = React.useState(false);
+export function UpdateModel({ styles, comment, setNewsComment }) {
+  const [open, setOpen] = useState(false);
+  const { updateComment } = useComment();
+  const [newDesc, setNewDesc] = useState(comment.description);
 
   const handleOpen = () => setOpen(!open);
+  const handleUpdate = async () => {
+    const x = await updateComment(comment.id, { description: newDesc });
+    setNewsComment(x);
+    // console.log(x);
+    setOpen(!open);
+  };
 
   return (
     <div style={styles}>
@@ -41,14 +51,18 @@ export function UpdateModel({ styles, comment }) {
         </div>
         <DialogBody divider>
           <div className="grid gap-6">
-            <Input label="Comment" defaultValue={comment} />
+            <Input
+              label="Comment"
+              value={newDesc}
+              onChange={(e) => setNewDesc(e.target.value)}
+            />
           </div>
         </DialogBody>
         <DialogFooter className="space-x-2">
           <Button variant="outlined" color="red" onClick={handleOpen}>
             close
           </Button>
-          <Button variant="gradient" color="green" onClick={handleOpen}>
+          <Button variant="gradient" color="green" onClick={handleUpdate}>
             Apply Changes
           </Button>
         </DialogFooter>

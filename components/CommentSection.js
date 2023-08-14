@@ -17,6 +17,7 @@ import { useAuth } from "@/context/auth";
 import { FaTrash } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
 import { UpdateModel } from "./UpdateModel";
+import DeleteModel from "./DeleteModel";
 
 export default function CommentSection({ title, isSaved, news }) {
   const [newsComment, setNewsComment] = useState(undefined);
@@ -89,12 +90,18 @@ export default function CommentSection({ title, isSaved, news }) {
                 </Typography>
                 <UpdateModel
                   styles={{ position: "absolute", left: "38rem", top: "0rem" }}
-                  comment={comment.description}
+                  comment={comment}
+                  setNewsComment={setNewsComment}
                 />
                 <FaTrash
                   className="text-red-700 absolute top-0"
                   style={{ position: "absolute", left: "40rem", top: "0rem" }}
                   size={18}
+                />
+                <DeleteModel
+                  styles={{ position: "absolute", left: "40rem", top: "0rem" }}
+                  comment={comment}
+                  setNewsComment={setNewsComment}
                 />
               </TimelineBody>
             </TimelineItem>
