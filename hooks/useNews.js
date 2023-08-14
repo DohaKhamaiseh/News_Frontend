@@ -36,9 +36,13 @@ export default function useNews() {
     try {
       const url = `${apiUrl}Create_News/`;
       const options = config();
-      (options.method = "POST"), (options.body = JSON.stringify(info));
-      await fetch(url, options);
+      options.method = "POST";
+      options.body = JSON.stringify({ ...info, user: user.id });
+      const response = await fetch(url, options);
+      const responseJSON = await response.json();
       mutate(); // mutate causes complete collection to be refetched
+
+      return responseJSON;
     } catch (err) {
       handleError(err);
     }

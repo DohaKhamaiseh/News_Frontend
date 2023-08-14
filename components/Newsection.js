@@ -11,14 +11,14 @@ export default function Newsection() {
   const { data } = useApi("new");
   const { dataAr } = useApi2("new", "ar");
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    if (data) {
-      setLoading(false);
-    }
-  }, [data, dataAr]);
+  // useEffect(() => {
+  //   if (data) {
+  //     setLoading(false);
+  //   }
+  // }, [data, dataAr]);
 
   return (
-    <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40 dark:text-fontDark">
+    <div className="dark:bg-bgDark pt-10  2xl:px-40 bg-bgLight dark:text-fontDark">
       {" "}
       <hr className="mb-6 border-t border-gray-300 dark:border-gray-600" />{" "}
       <h1 className="text-2xl dark:text-white text-black flex">
@@ -39,11 +39,6 @@ export default function Newsection() {
             </span>
           </>
         )}
-        {/* News{" "}
-            <span className="pt-1 pl-1">
-              {" "}
-              <FaAngleRight />{" "}
-            </span>{" "} */}
       </h1>
       {!dataAr ? (
         <Loader />

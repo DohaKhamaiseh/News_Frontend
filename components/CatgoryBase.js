@@ -18,7 +18,7 @@ export default function CatgoryBase({ catgory }) {
   }, [data]);
   return (
     <>
-      {loading ? (
+      {!dataAr ? (
         <Loader />
       ) : (
         <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
