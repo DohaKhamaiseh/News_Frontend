@@ -112,6 +112,7 @@ export default function CommentSection({ title, isSaved, news }) {
                   styles={{ position: "absolute", left: "40rem", top: "0rem" }}
                   comment={comment}
                   setNewsComment={setNewsComment}
+                  news={news}
                 />
               </TimelineBody>
             </TimelineItem>
