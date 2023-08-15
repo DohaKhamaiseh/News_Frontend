@@ -47,6 +47,9 @@ module.exports = withMT({
         100: "32rem",
         99: "80vh",
       },
+      maxHeight: {
+        107: "6.688rem",
+      },
     },
   },
   plugins: [],

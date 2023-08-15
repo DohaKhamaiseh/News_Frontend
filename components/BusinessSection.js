@@ -1,17 +1,19 @@
 import React from "react";
 import { useApi, useApi2 } from "../hooks/useApi";
-import { FaAngleRight } from "react-icons/fa";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Loader from "./Loader";
 import CardSmall from "./CardSmall";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 export default function Business() {
   const router = useRouter();
   const { data } = useApi("business");
   const { dataAr } = useApi2("Business", "ar"); // en or ar from cookies
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
   useEffect(() => {
     if (data || dataAr) {
       setLoading(false);
