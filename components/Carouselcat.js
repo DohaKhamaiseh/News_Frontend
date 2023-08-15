@@ -8,7 +8,13 @@ export default function Carouselcat({ data, loading }) {
       {loading ? (
         <Loader />
       ) : (
-        <Carousel className="rounded-xl bg-bgLight" dir="ltr" autoplay={true} autoplayTimeout={5000} loop={true}>
+        <Carousel
+          className="rounded-xl bg-bgLight"
+          dir="ltr"
+          autoplay={true}
+          autoplayTimeout={3000}
+          loop={true}
+        >
           {data.articles.slice(0, 3).map((item) => (
             <div className="relative h-full w-full ">
               <img

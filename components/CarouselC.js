@@ -11,7 +11,13 @@ export default function CarouselC({ data, loading }) {
       {!data ? (
         <Loader />
       ) : (
-        <Carousel className="rounded-xl" dir="ltr" autoplay={true} autoplayTimeout={4500} loop={true}>
+        <Carousel
+          className="rounded-xl"
+          dir="ltr"
+          autoplay={true}
+          autoplayTimeout={3000}
+          loop={true}
+        >
           {data.articles.slice(0, 3).map((item) => (
             <div className="relative h-100 w-full">
               <img
