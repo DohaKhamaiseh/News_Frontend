@@ -50,7 +50,7 @@ export default function CommentSection({ title, isSaved, news }) {
     } else {
       const obj = {
         user: user.id,
-        news: isSaved[0].id,
+        news: news.id,
         newsTitle: encodeURI(news.title),
         userName: user.username,
         description: commObj.description,

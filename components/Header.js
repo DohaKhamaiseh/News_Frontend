@@ -140,7 +140,7 @@ export default function Header({ isHome }) {
 
               <Link
                 className="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 custom-teal-bg rounded shadow outline-none active:bg-teal-600 hover:shadow-md focus:outline-none ease"
-                href="/Profile/MyNews"
+                href="/Profile/ProfileInfo"
               >
                 {" "}
                 {t("common:profile")}
