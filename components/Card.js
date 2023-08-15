@@ -18,7 +18,7 @@ export default function Card({ item, isReadingList }) {
     if (item.id) {
       Cookies.set("news_id", JSON.stringify(item.id));
     }
-    router.push("singleNew");
+    router.push("/singleNew");
   }
   return (
     <li className="cards_item dark:bg-bgDark pt-10 bg-bgLight ">

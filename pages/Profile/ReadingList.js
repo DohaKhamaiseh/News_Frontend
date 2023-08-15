@@ -14,7 +14,7 @@ export async function getStaticProps({ locale }) {
 }
 export default function ReadingList() {
   const { GetList } = useReadingList();
-  console.log(GetList);
+  // console.log(GetList);
 
   return (
     <>
