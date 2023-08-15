@@ -1,4 +1,4 @@
-import Link from "next/link";
+import React from "react";
 import Cookies from "js-cookie";
 import { useAuth } from "@/context/auth";
 import { useRouter } from "next/router";
@@ -18,12 +18,12 @@ export default function Card({ item, isReadingList }) {
     if (item.id) {
       Cookies.set("news_id", JSON.stringify(item.id));
     }
-    router.push("/singleNew");
+    router.push("singleNew");
   }
+
   return (
-    <li className="cards_item dark:bg-bgDark pt-10 bg-bgLight ">
+    <li className="cards_item dark:bg-bgDark pt-10 bg-bgLight card-hover">
       <div>
-        {/* <a href={item.url}> */}
         <div className="card_news">
           <div className="card_image">
             <img
@@ -42,11 +42,20 @@ export default function Card({ item, isReadingList }) {
             <div>
               <Pop item={item} isReadingList={isReadingList} />
             </div>
-            {/* <a href ={item.url}> <button className="btn card_btn dark:text-white text-black border-black dark:border-white hover:bg-slate-600" >Read More</button> </a> */}
           </div>
         </div>
-        {/* </a> */}
       </div>
+      <style jsx>{`
+        .card-hover {
+          transition: transform 0.3s ease, border 0.3s ease;
+        }
+
+        .card-hover:hover {
+          transform: scale(1.05);
+          border: 2px solid #ccc; /* Subtle gray color */
+          border-radius: 10px; /* Rounded border */
+        }
+      `}</style>
     </li>
   );
 }
