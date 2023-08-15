@@ -36,18 +36,25 @@ export default function Pop({ item, isReadingList }) {
 
   return (
     <Popover placement="bottom" open={open}>
-      <PopoverHandler onClick={() => setOpen(!open)}>
+      <PopoverHandler
+        onClick={() => setOpen(!open)}
+        className="dark:bg-bgLight bg-signup"
+      >
         <Button>
           {isReadingList ? (
-            <FaTrash size={23} />
+            <span className="dark:text-gray-900">
+              <FaTrash size={23} />
+            </span>
           ) : (
-            <BsTextIndentLeft size={23} />
+            <span className="dark:text-gray-900">
+              <BsTextIndentLeft size={23} />
+            </span>
           )}
         </Button>
       </PopoverHandler>
-      <PopoverContent className="w-72">
+      <PopoverContent className="w-72 ">
         <List className="p-0">
-          <ListItem className="text-initial" onClick={() => handleClick(item)}>
+          <ListItem className="text-initial " onClick={() => handleClick(item)}>
             <ListItemPrefix>
               {isReadingList ? (
                 <FaTrash size={23} />

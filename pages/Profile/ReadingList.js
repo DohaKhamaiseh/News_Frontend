@@ -21,7 +21,7 @@ export default function ReadingList() {
       <Parent>
         <NavProfile />
         <div
-          className="bg-bgLight dark:bg-bgDark pt-10  2xl:px-40"
+          className="bg-bgLight dark:bg-bgDark pt-10  2xl:px-40 "
           style={
             GetList?.length <= 4
               ? {

@@ -30,7 +30,7 @@ export default function MostComments() {
       <hr className="mb-6 border-t border-gray-300 dark:border-gray-600" />{" "}
       <h1 className="text-2xl dark:text-white text-black flex">
         <span className="w-4 bg-black mx-2 title_box"> </span>
-        {t("home:comments") === "Comments" ? (
+        {t("home:comments") === "People Discuss" ? (
           <>
             {t("home:comments")}
             <span className="pt-1 pl-1">
