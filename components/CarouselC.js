@@ -2,6 +2,7 @@ import React from "react";
 import { Carousel, Typography } from "@material-tailwind/react";
 import Loader from "./Loader";
 import { useEffect } from "react";
+
 export default function CarouselC({ data, loading }) {
   useEffect(() => {}, [data]);
 
@@ -10,7 +11,7 @@ export default function CarouselC({ data, loading }) {
       {!data ? (
         <Loader />
       ) : (
-        <Carousel className="rounded-xl  " dir="ltr">
+        <Carousel className="rounded-xl" dir="ltr" autoplay={true} autoplayTimeout={4500} loop={true}>
           {data.articles.slice(0, 3).map((item) => (
             <div className="relative h-100 w-full">
               <img

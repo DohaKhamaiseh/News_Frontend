@@ -1,13 +1,14 @@
 import React from "react";
 import { Carousel, Typography } from "@material-tailwind/react";
 import Loader from "./Loader";
+
 export default function Carouselcat({ data, loading }) {
   return (
     <>
       {loading ? (
         <Loader />
       ) : (
-        <Carousel className="rounded-xl bg-bgLight" dir="ltr">
+        <Carousel className="rounded-xl bg-bgLight" dir="ltr" autoplay={true} autoplayTimeout={5000} loop={true}>
           {data.articles.slice(0, 3).map((item) => (
             <div className="relative h-full w-full ">
               <img
