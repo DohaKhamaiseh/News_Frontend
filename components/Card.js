@@ -25,7 +25,7 @@ export default function Card({ item, isReadingList }) {
     <li className="cards_item dark:bg-bgDark pt-10 bg-bgLight card-hover">
       <div>
         <div className="card_news">
-          <div className="card_image">
+          <div className="">
             <img
               src={
                 item.urlToImage ||
@@ -33,13 +33,16 @@ export default function Card({ item, isReadingList }) {
                 "https://www.servicedriventransport.com/wp-content/uploads/2023/06/News.jpg"
               }
               onClick={() => singleNew(item)}
+              className="max-h-107 min-w-full "
             />
           </div>
           <div className="card_content_news ">
-            <p className="card_title dark:text-white text-black">
-              {item.title}
-            </p>
-            <div>
+            <div className="h-40">
+              <p className="card_title dark:text-white text-black ">
+                {item.title}
+              </p>
+            </div>
+            <div className="place-self-end ">
               <Pop item={item} isReadingList={isReadingList} />
             </div>
           </div>
