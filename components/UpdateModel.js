@@ -11,6 +11,7 @@ import {
 } from "@material-tailwind/react";
 import { AiFillEdit } from "react-icons/ai";
 import useComment from "@/hooks/useComment";
+import { sign } from "jsonwebtoken";
 
 export function UpdateModel({ styles, comment, setNewsComment }) {
   const [open, setOpen] = useState(false);
@@ -59,10 +60,10 @@ export function UpdateModel({ styles, comment, setNewsComment }) {
           </div>
         </DialogBody>
         <DialogFooter className="space-x-2">
-          <Button variant="outlined" color="red" onClick={handleOpen}>
+          {/* <Button variant="outlined" color="red" onClick={handleOpen}>
             close
-          </Button>
-          <Button variant="gradient" color="green" onClick={handleUpdate}>
+          </Button> */}
+          <Button variant="gradient" color="teal" onClick={handleUpdate}>
             Apply Changes
           </Button>
         </DialogFooter>

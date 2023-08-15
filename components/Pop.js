@@ -37,11 +37,11 @@ export default function Pop({ item, isReadingList }) {
   return (
     <Popover placement="bottom" open={open}>
       <PopoverHandler onClick={() => setOpen(!open)}>
-        <Button>
+        <Button className="right-0">
           {isReadingList ? (
             <FaTrash size={23} />
           ) : (
-            <BsTextIndentLeft size={23} />
+            <BsTextIndentLeft size={23}/>
           )}
         </Button>
       </PopoverHandler>

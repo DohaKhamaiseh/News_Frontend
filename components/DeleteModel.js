@@ -54,9 +54,9 @@ export default function DeleteModel({ styles, comment, setNewsComment }) {
           <Typography color="red" variant="h4">
             Are you Sure you want to Delete !
           </Typography>
-          <Typography className="text-center font-normal">
+          {/* <Typography className="text-center font-normal">
             {comment.description}
-          </Typography>
+          </Typography> */}
         </DialogBody>
         <DialogFooter className="space-x-2">
           <Button variant="text" color="blue-gray" onClick={handleOpen}>
@@ -64,7 +64,7 @@ export default function DeleteModel({ styles, comment, setNewsComment }) {
           </Button>
 
           <form onSubmit={handleDelete}>
-            <Button variant="gradient" type="submit">
+            <Button variant="gradient" color="red" type="submit">
               Yes,i am Sure
             </Button>
           </form>
