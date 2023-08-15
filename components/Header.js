@@ -143,7 +143,7 @@ export default function Header({ isHome }) {
                 href="/Profile/MyNews"
               >
                 {" "}
-                profile{" "}
+                {t("common:profile")}
               </Link>
             </>
           ) : (
