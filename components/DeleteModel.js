@@ -11,19 +11,24 @@ import { FaTrash } from "react-icons/fa";
 import useComment from "@/hooks/useComment";
 import { useAuth } from "@/context/auth";
 
-export default function DeleteModel({ styles, comment, setNewsComment }) {
+export default function DeleteModel({ styles, comment, setNewsComment, news }) {
   const [open, setOpen] = React.useState(false);
   const { deleteComment } = useComment();
   const handleOpen = () => setOpen(!open);
-  //   const { user } = useAuth();
+    const { user } = useAuth();
 
   const handleDelete = async (e) => {
     e.preventDefault();
     const x = await deleteComment(comment.id);
-    console.log(x);
-    setNewsComment(x);
+    // console.log(comment.news);
+    const filteredComments =await x.filter(comment =>   comment.news ===news.id);
+    // console.log(filteredComments);
+    setNewsComment(filteredComments);
     setOpen(!open);
   };
+  
+    
+
 
   return (
     <div style={styles}>
@@ -54,9 +59,9 @@ export default function DeleteModel({ styles, comment, setNewsComment }) {
           <Typography color="red" variant="h4">
             Are you Sure you want to Delete !
           </Typography>
-          <Typography className="text-center font-normal">
+          {/* <Typography className="text-center font-normal">
             {comment.description}
-          </Typography>
+          </Typography> */}
         </DialogBody>
         <DialogFooter className="space-x-2">
           <Button variant="text" color="blue-gray" onClick={handleOpen}>
@@ -64,7 +69,7 @@ export default function DeleteModel({ styles, comment, setNewsComment }) {
           </Button>
 
           <form onSubmit={handleDelete}>
-            <Button variant="gradient" type="submit">
+            <Button variant="gradient" color="red" type="submit">
               Yes,i am Sure
             </Button>
           </form>

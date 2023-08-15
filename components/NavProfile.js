@@ -1,10 +1,14 @@
 import React from "react";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
+import { useRouter } from 'next/router';
 
 export default function NavProfile({ setCategory, catgory }) {
   const { t } = useTranslation();
+
+  const router = useRouter();
+
   useEffect(() => {
     // When the user scrolls the page, execute myFunction
     window.addEventListener("scroll", handleScroll);
@@ -34,30 +38,30 @@ export default function NavProfile({ setCategory, catgory }) {
         <Link
           href="/Profile/MyNews"
           style={
-            catgory == "all" ? { backgroundColor: "rgba(0, 0, 0, 0.3)" } : {}
+            router.pathname == "/Profile/MyNews" ? { backgroundColor: "rgba(0, 0, 0, 0.3)" } : {}
           }
         >
-          My News
+        {t("common:mynews")}
         </Link>
         <Link
           href="/Profile/ReadingList"
           style={
-            catgory == "Reading_List"
+            router.pathname == "/Profile/ReadingList"
               ? { backgroundColor: "rgba(0, 0, 0, 0.3)" }
               : {}
           }
         >
-          Reading List
+      {t("common:read")}
         </Link>
         <Link
           href="/Profile/ProfileInfo"
           style={
-            catgory == "Profile_Info"
+            router.pathname == "/Profile/ProfileInfo"
               ? { backgroundColor: "rgba(0, 0, 0, 0.3)" }
               : {}
           }
         >
-          Profile Info
+       {t("common:profile")}
         </Link>
       </div>
     </div>

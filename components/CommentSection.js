@@ -81,11 +81,11 @@ export default function CommentSection({ title, isSaved, news }) {
             <TimelineItem key={comment.id}>
               <TimelineConnector />
               <TimelineHeader className="h-3 ">
-                <TimelineIcon />
+                <TimelineIcon className="dark:bg-signup"/>
                 <Typography
                   variant="h6"
-                  color="blue-gray"
-                  className="leading-none"
+                  // color="blue-gray"
+                  className="leading-none dark:text-fontDark"
                 >
                   {comment.userName}
                 </Typography>
@@ -94,7 +94,7 @@ export default function CommentSection({ title, isSaved, news }) {
                 <Typography
                   variant="small"
                   color="gary"
-                  className="font-normal text-gray-600"
+                  className="font-normal text-gray-600 dark:text-gray-300"
                 >
                   {comment.description}
                 </Typography>
@@ -112,6 +112,7 @@ export default function CommentSection({ title, isSaved, news }) {
                   styles={{ position: "absolute", left: "40rem", top: "0rem" }}
                   comment={comment}
                   setNewsComment={setNewsComment}
+                  news={news}
                 />
               </TimelineBody>
             </TimelineItem>

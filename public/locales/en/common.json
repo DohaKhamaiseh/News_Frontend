@@ -23,6 +23,9 @@
         "alert_pass":"Your password must contain : Capital letter, Small letter, Number and +8 character !!! or your Confirm password is diffrent !!!",
         "youraccount": "Signin to your account!",
         "Logout" : "LogOut",
-        "Login" : "Login"
+        "Login" : "Login",
+        "profile":"Profile",
+        "read" : "Reading List",
+        "mynews":"My News"
     
 }

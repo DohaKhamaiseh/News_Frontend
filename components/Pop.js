@@ -36,19 +36,23 @@ export default function Pop({ item, isReadingList }) {
 
   return (
     <Popover placement="bottom" open={open}>
+
       <PopoverHandler
         onClick={() => setOpen(!open)}
         className="dark:bg-bgLight bg-signup"
       >
         <Button>
+
           {isReadingList ? (
             <span className="dark:text-gray-900">
               <FaTrash size={23} />
             </span>
           ) : (
+
             <span className="dark:text-gray-900">
               <BsTextIndentLeft size={23} />
             </span>
+
           )}
         </Button>
       </PopoverHandler>

@@ -73,7 +73,7 @@ export default function singleNew() {
       <div className="flex flex-col gap-14 dark:bg-bgDark bg-bgLight 2xl:px-40 pt-10">
         <Post data={news} />
 
-        <div className="w-[32rem] pl-100 ">
+        <div className="w-[32rem] pl-60 ">
           <CommentSection title={news.title} isSaved={isSaved} news={news} />
         </div>
         {/* <div className="pl-100">
