@@ -19,7 +19,14 @@ export default function CatgoryBase({ catgory }) {
   return (
     <>
       {!dataAr ? (
-        <Loader />
+        <div
+          style={{
+            minHeight: "70vh",
+          }}
+          className="bg-bgLight dark:bg-bgDark"
+        >
+          <Loader />
+        </div>
       ) : (
         <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40">
           {Cookies.get("lang") ? (

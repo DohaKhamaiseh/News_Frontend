@@ -18,7 +18,10 @@ export default function Carouselcat({ data, loading }) {
           {data.articles.slice(0, 3).map((item) => (
             <div className="relative h-full w-full ">
               <img
-                src={item.urlToImage}
+                src={
+                  item.urlToImage ||
+                  "https://www.servicedriventransport.com/wp-content/uploads/2023/06/News.jpg"
+                }
                 alt="image 1"
                 className="object-cover h-full w-full "
               />

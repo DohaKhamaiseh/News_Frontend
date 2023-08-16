@@ -21,7 +21,7 @@ export default function Usercomment({ new_id }) {
       const w = await fetchCommentUser(new_id);
       setUsercomment(w);
     }
-    console.log(new_id);
+    // console.log(new_id);
     getusercomment();
   }, []);
 

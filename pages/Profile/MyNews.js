@@ -24,7 +24,14 @@ export default function MyNews() {
         <NavProfile />
 
         {!news ? (
-          <Loader />
+          <div
+            style={{
+              minHeight: "70vh",
+            }}
+            className="bg-bgLight dark:bg-bgDark"
+          >
+            <Loader />
+          </div>
         ) : (
           news.map((item, index) => (
             <div
