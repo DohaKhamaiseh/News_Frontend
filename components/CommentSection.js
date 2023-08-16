@@ -34,6 +34,7 @@ export default function CommentSection({ title, isSaved, news }) {
         ...news,
         source: news.source.name,
         url_image: news.urlToImage,
+        published_date: news.publishedAt.slice(0, 10),
       };
       const newr = await createNews(apinew);
       setnewNews(newr);
@@ -63,7 +64,7 @@ export default function CommentSection({ title, isSaved, news }) {
 
   useEffect(() => {
     async function get_comments() {
-      console.log("title is coming ", title);
+      // console.log("title is coming ", title);
       const x = await fetchCommentNew(title);
       setNewsComment(x);
       // console.log(x);
@@ -81,7 +82,7 @@ export default function CommentSection({ title, isSaved, news }) {
             <TimelineItem key={comment.id}>
               <TimelineConnector />
               <TimelineHeader className="h-3 ">
-                <TimelineIcon className="dark:bg-signup"/>
+                <TimelineIcon className="dark:bg-signup" />
                 <Typography
                   variant="h6"
                   // color="blue-gray"
@@ -102,6 +103,7 @@ export default function CommentSection({ title, isSaved, news }) {
                   styles={{ position: "absolute", left: "38rem", top: "0rem" }}
                   comment={comment}
                   setNewsComment={setNewsComment}
+                  news={news}
                 />
                 <FaTrash
                   className="text-red-700 absolute top-0"

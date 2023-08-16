@@ -4,7 +4,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useAuth } from "@/context/auth";
-import axios from "axios";
+
 import { useRouter } from "next/router";
 import Loader from "@/components/Loader";
 import Cookies from "js-cookie";

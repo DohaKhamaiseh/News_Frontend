@@ -13,6 +13,7 @@ import useReadingList from "@/hooks/useReadingLater";
 import { useAuth } from "@/context/auth";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 export default function Pop({ item, isReadingList }) {
   const { createReadingLater, deleteReadingLater } = useReadingList();
@@ -26,7 +27,26 @@ export default function Pop({ item, isReadingList }) {
       setOpen(false);
     } else {
       if (user) {
-        createReadingLater({ ...item, user: user.id });
+        if (!item.id) {
+          const obj = {
+            description: item.description,
+            content: item.content,
+            author: item.author,
+            title: item.title,
+            url: item.url,
+            user: user.id,
+            source: item.source.name,
+            url_image: item.urlToImage,
+            published_date: item.publishedAt.slice(0, 10),
+          };
+          // console.log(obj);
+          createReadingLater(obj);
+        }
+        createReadingLater({
+          ...item,
+          user: user.id,
+        });
+
         setOpen(false);
       } else {
         router.push("/signin");
@@ -36,23 +56,19 @@ export default function Pop({ item, isReadingList }) {
 
   return (
     <Popover placement="bottom" open={open}>
-
       <PopoverHandler
         onClick={() => setOpen(!open)}
         className="dark:bg-bgLight bg-signup"
       >
         <Button>
-
           {isReadingList ? (
             <span className="dark:text-gray-900">
               <FaTrash size={23} />
             </span>
           ) : (
-
             <span className="dark:text-gray-900">
               <BsTextIndentLeft size={23} />
             </span>
-
           )}
         </Button>
       </PopoverHandler>

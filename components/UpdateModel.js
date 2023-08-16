@@ -13,7 +13,7 @@ import { AiFillEdit } from "react-icons/ai";
 import useComment from "@/hooks/useComment";
 import { sign } from "jsonwebtoken";
 
-export function UpdateModel({ styles, comment, setNewsComment }) {
+export function UpdateModel({ styles, comment, setNewsComment, news }) {
   const [open, setOpen] = useState(false);
   const { updateComment } = useComment();
   const [newDesc, setNewDesc] = useState(comment.description);
@@ -21,7 +21,8 @@ export function UpdateModel({ styles, comment, setNewsComment }) {
   const handleOpen = () => setOpen(!open);
   const handleUpdate = async () => {
     const x = await updateComment(comment.id, { description: newDesc });
-    setNewsComment(x);
+    const filteredComments = await x.filter((e) => e.news === news.id);
+    setNewsComment(filteredComments);
     // console.log(x);
     setOpen(!open);
   };

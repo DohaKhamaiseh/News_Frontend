@@ -47,9 +47,9 @@ export default function Home() {
 
             <Trendingsection />
             <TechSection />
-            <Combined />
+            <Combined /> */}
 
-            <SportSection /> */}
+            {/* <SportSection /> */}
 
             <MostComments />
           </>
