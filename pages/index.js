@@ -42,14 +42,14 @@ export default function Home() {
 
         {category == "all" ? (
           <>
-            {/* <HeroSection />
+            <HeroSection />
             <Newsection />
 
             <Trendingsection />
             <TechSection />
-            <Combined /> */}
+            <Combined />
 
-            {/* <SportSection /> */}
+            <SportSection />
 
             <MostComments />
           </>
