@@ -41,8 +41,8 @@ export default function Aboutus() {
               src="/aboutusimg.png"
               alt="image"
               loading="lazy"
-              width=""
-              height=""
+              width={1000}
+              height={1000}
             />
           </div>
         </div>

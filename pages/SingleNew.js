@@ -59,7 +59,7 @@ export default function SingleNew() {
       };
 
       const w = await createComment(obj);
-      console.log(w);
+      // console.log(w);
     }
   }
 

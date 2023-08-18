@@ -49,7 +49,7 @@ export default function Pop({ item, isReadingList }) {
 
         setOpen(false);
       } else {
-        router.push("/signin");
+        router.push("/Signin");
       }
     }
   }

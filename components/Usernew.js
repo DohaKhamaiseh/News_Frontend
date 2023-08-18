@@ -15,6 +15,8 @@ export default function Usernew({ item }) {
                     item.url_image ||
                     "https://www.servicedriventransport.com/wp-content/uploads/2023/06/News.jpg"
                   }
+                  width={1000}
+                  height={1000}
                 />
               </a>
               <div className="flex flex-col flex-1 p-6">
