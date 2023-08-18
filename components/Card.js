@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { useAuth } from "@/context/auth";
 import { useRouter } from "next/router";
 import Pop from "./Pop";
+import Image from "next/image";
 
 export default function Card({ item, isReadingList }) {
   const { user } = useAuth();
@@ -32,6 +33,7 @@ export default function Card({ item, isReadingList }) {
                 item.url_image ||
                 "https://www.servicedriventransport.com/wp-content/uploads/2023/06/News.jpg"
               }
+              alt="potato"
               onClick={() => singleNew(item)}
               className="max-h-107 min-w-full "
             />

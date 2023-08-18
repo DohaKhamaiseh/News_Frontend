@@ -135,7 +135,7 @@ export default function OurTeam() {
                   }}
                 ></div>
                 <div className="card__content">
-                  <p className="card__category">Ala'a Hmaidat</p>
+                  <p className="card__category">Alaa Hmaidat</p>
                   <h3 className="card__heading">Full Stack Developer</h3>
 
                   <div className="card__social-media">

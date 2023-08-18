@@ -2,6 +2,7 @@ import React from "react";
 import { Carousel, Typography } from "@material-tailwind/react";
 import Loader from "./Loader";
 import { useEffect } from "react";
+import Image from "next/image";
 
 export default function CarouselC({ data, loading }) {
   useEffect(() => {}, [data]);

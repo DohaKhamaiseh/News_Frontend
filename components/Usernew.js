@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Usernew({ item }) {
   return (
     <div className="w-4/6 mt-10">
