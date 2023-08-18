@@ -8,7 +8,7 @@ export default function CardSmall({ item }) {
         className="flex gap-3 h-40 border-gray-900 w-full dark:border-signup"
         style={{ borderBottomWidth: "1px" }}
       >
-        <img
+        <Image
           src={
             item.urlToImage ||
             "https://www.servicedriventransport.com/wp-content/uploads/2023/06/News.jpg"

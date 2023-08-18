@@ -15,7 +15,7 @@ export default function CatgoryBase({ catgory }) {
     if (data || dataAr) {
       setLoading(false);
     }
-  }, [data]);
+  }, [data, dataAr]);
   return (
     <>
       {!dataAr ? (

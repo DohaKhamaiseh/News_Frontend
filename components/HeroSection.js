@@ -29,7 +29,7 @@ function HeroSection() {
               <CarouselC data={dataAr} loading={loadingAr} />
               <div className="flex flex-col">
                 {dataAr.articles.slice(5, 8).map((item) => (
-                  <CardSmall item={item} />
+                  <CardSmall item={item} key={item.title} />
                 ))}
               </div>
             </>
@@ -38,7 +38,7 @@ function HeroSection() {
               <CarouselC data={data} loading={loadingAr} />
               <div className="flex flex-col">
                 {data.articles.slice(5, 8).map((item) => (
-                  <CardSmall item={item} />
+                  <CardSmall item={item} key={item.title} />
                 ))}
               </div>
             </>

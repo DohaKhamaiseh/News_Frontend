@@ -16,7 +16,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 
-export default function signUp() {
+export default function SignUp() {
   const { t } = useTranslation();
 
   const [alert, setAlert] = useState(false);

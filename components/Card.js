@@ -26,7 +26,7 @@ export default function Card({ item, isReadingList }) {
       <div>
         <div className="card_news">
           <div className="">
-            <img
+            <Image
               src={
                 item.urlToImage ||
                 item.url_image ||

@@ -22,7 +22,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 
-export default function singleNew() {
+export default function SingleNew() {
   // const [news, setNews] = useState({});
   const { createComment, fetchCommentNew } = useComment();
   const { allNews } = useAllNews();

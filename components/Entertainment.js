@@ -17,7 +17,7 @@ export default function Entertainment() {
     if (data || dataAr) {
       setLoading(false);
     }
-  }, [data]);
+  }, [data, dataAr]);
 
   return (
     <div className="dark:bg-bgDark pt-10 bg-bgLight 2xl:px-40 ">
@@ -44,7 +44,6 @@ export default function Entertainment() {
         <Loader />
       ) : (
         <>
-
           <ul className="cards  ">
             {Cookies.get("lang") ? (
               <>
