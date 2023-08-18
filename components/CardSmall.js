@@ -1,5 +1,6 @@
 import React from "react";
 import { Chip } from "@material-tailwind/react";
+import Image from "next/image";
 
 export default function CardSmall({ item }) {
   return (
@@ -13,6 +14,7 @@ export default function CardSmall({ item }) {
             item.urlToImage ||
             "https://www.servicedriventransport.com/wp-content/uploads/2023/06/News.jpg"
           }
+          alt="nice"
           width="150"
           height="150"
           className="object-scale-down"

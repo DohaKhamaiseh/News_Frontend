@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel, Typography } from "@material-tailwind/react";
 import Loader from "./Loader";
+import Image from "next/image";
 
 export default function Carouselcat({ data, loading }) {
   return (
