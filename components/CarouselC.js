@@ -18,9 +18,9 @@ export default function CarouselC({ data, loading }) {
           autoplayTimeout={3000}
           loop={true}
         >
-          {data.articles.slice(0, 3).map((item) => (
-            <div className="relative h-100 w-full">
-              <img
+          {data.articles.slice(0, 3).map((item, i) => (
+            <div className="relative h-100 w-full" key={i}>
+              <Image
                 src={
                   item.urlToImage ||
                   "https://www.servicedriventransport.com/wp-content/uploads/2023/06/News.jpg"

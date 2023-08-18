@@ -10,7 +10,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 
-export default function aboutus() {
+export default function Aboutus() {
   const { t } = useTranslation();
   return (
     <>
@@ -21,7 +21,6 @@ export default function aboutus() {
           className=" md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12   px-80 bg-bgLight dark:bg-bgDark"
           style={{ minHeight: "70vh" }}
         >
-          
           <div className="md:7/12 lg:w-6/12 font-serif">
             <h2 className="text-6xl text-gray-900 font-bold md:text-4xl dark:text-fontDark">
               {t("common:AboutApp")}
@@ -36,7 +35,7 @@ export default function aboutus() {
             </p>
           </div>
           <div className="md:5/12 lg:w-11/12">
-            <img
+            <Image
               className="rounded"
               src="/aboutusimg.png"
               alt="image"

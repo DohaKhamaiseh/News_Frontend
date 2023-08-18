@@ -18,7 +18,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 
-export default function signIn() {
+export default function SignIn() {
   const { t } = useTranslation();
   const { login, user, tokens } = useAuth();
   const router = useRouter();

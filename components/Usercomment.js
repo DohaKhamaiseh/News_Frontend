@@ -23,7 +23,7 @@ export default function Usercomment({ new_id }) {
     }
     // console.log(new_id);
     getusercomment();
-  }, []);
+  }, [fetchCommentUser, new_id]);
 
   return (
     <>

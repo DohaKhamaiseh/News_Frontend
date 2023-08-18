@@ -70,7 +70,7 @@ export default function CommentSection({ title, isSaved, news }) {
       // console.log(x);
     }
     get_comments();
-  }, [newNews]);
+  }, [newNews, fetchCommentNew, title]);
 
   return (
     <>
