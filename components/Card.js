@@ -11,7 +11,7 @@ export default function Card({ item, isReadingList }) {
 
   function singleNew(item) {
     if (!user) {
-      router.push("/signin");
+      router.push("/Signin");
       return;
     }
 
@@ -19,7 +19,7 @@ export default function Card({ item, isReadingList }) {
     if (item.id) {
       Cookies.set("news_id", JSON.stringify(item.id));
     }
-    router.push("singleNew");
+    router.push("/SingleNew");
   }
 
   return (
@@ -35,6 +35,8 @@ export default function Card({ item, isReadingList }) {
               }
               alt="potato"
               onClick={() => singleNew(item)}
+              width={1000}
+              height={1000}
               className="max-h-107 min-w-full "
             />
           </div>

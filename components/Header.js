@@ -150,14 +150,14 @@ export default function Header({ isHome }) {
             <>
               {/* onClick={() => login("amjad", "1234")} */}
               <Link
-                href="/signin"
+                href="/Signin"
                 className="mr-5  dark:text-signup  text-gray-900 font-bold"
               >
                 {t("common:Login")}
               </Link>
 
               <Link
-                href="/signup"
+                href="/Signup"
                 className="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 custom-teal-bg rounded shadow outline-none active:bg-teal-600 hover:shadow-md focus:outline-none ease"
               >
                 {t("common:signup")}

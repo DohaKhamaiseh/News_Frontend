@@ -139,7 +139,7 @@ export default function SignIn() {
                     <div className="text-center">
                       <Link
                         className="inline-block text-sm text-teal-600  align-baseline hover:text-bgDark"
-                        href="/signup"
+                        href="/Signup"
                       >
                         {t("common:noaccount")}
                       </Link>

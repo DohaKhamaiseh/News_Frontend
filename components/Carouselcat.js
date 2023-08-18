@@ -24,6 +24,8 @@ export default function Carouselcat({ data, loading }) {
                   "https://www.servicedriventransport.com/wp-content/uploads/2023/06/News.jpg"
                 }
                 alt="image 1"
+                width={1000}
+                height={1000}
                 className="object-cover h-full w-full "
               />
               <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
